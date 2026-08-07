@@ -1,0 +1,39 @@
+---
+const badges = ['On-device today', 'No account needed', 'Never sold', 'Yours to export'];
+---
+<section id="privacy" class="privacy">
+  <div class="container">
+    <div class="inner">
+      <p class="eyebrow">Your data, your control</p>
+      <h2>Your financial life is yours. <em class="ever">We treat it that way.</em></h2>
+      <p class="lead">
+        Today, Orielle runs entirely on your phone. There’s no account to create and no server copy
+        of your finances. If a future feature ever needs to store data, like sync or backup, it will
+        be yours to switch on, protected by the privacy laws that apply to you, including GDPR, CCPA,
+        and India’s DPDP Act. And we will never sell your data. That part isn’t a feature. It’s the
+        business model.
+      </p>
+      <div class="badges">
+        {badges.map((b) => <span class="badge">{b}</span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .privacy { background: var(--secondary-subtle); }
+  .inner { max-width: 66ch; }
+  .privacy h2 { max-width: 20ch; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .badge {
+    font-family: var(--font-brand); font-weight: 600; font-size: 0.84rem;
+    color: var(--primary); background: var(--surface);
+    border: 1px solid var(--primary-muted); border-radius: var(--radius-full);
+    padding: 8px 16px 8px 30px; position: relative;
+  }
+  .badge::before {
+    content: ''; position: absolute; left: 13px; top: 50%;
+    width: 6px; height: 10px; margin-top: -6px;
+    border: solid var(--secondary); border-width: 0 2px 2px 0; transform: rotate(45deg);
+  }
+</style>

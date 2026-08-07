@@ -1,0 +1,23 @@
+---
+---
+<nav class="nav">
+  <div class="container inner">
+    <a href="/" class="wordmark">Orielle</a>
+    <span class="pill">Coming soon · India</span>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(10px) saturate(1.1);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .inner { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .wordmark {
+    font-family: var(--font-display); font-weight: 600; font-size: 1.5rem;
+    letter-spacing: -0.02em; color: var(--primary); text-decoration: none;
+  }
+  .wordmark:hover { text-decoration: none; }
+</style>

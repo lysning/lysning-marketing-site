@@ -1,0 +1,45 @@
+---
+import PhoneFrame from './PhoneFrame.astro';
+import GoalPace from './mock/GoalPace.astro';
+---
+<section id="goals" class="goals">
+  <div class="container grid">
+    <div class="art">
+      <PhoneFrame label="Orielle goal pace">
+        <GoalPace />
+      </PhoneFrame>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">Earmarked goals</p>
+      <h2>Save for something you can <em class="warm">picture</em>, and watch the finish line move closer.</h2>
+      <p class="lead">
+        Money saved is only as good as what it gets you. So Orielle starts with the thing itself:
+        the wedding date, the down payment, the cushion that lets you sleep. Fund a goal and the
+        amount is earmarked in your own account. The same rupee is never promised twice, and every
+        week you can see exactly how far you’ve come and how far is left.
+      </p>
+      <p class="note">
+        <strong>Orielle never holds, moves, or invests your money.</strong> Nothing changes hands.
+        Unlike apps that take custody of your savings, everything stays exactly where it is —
+        Orielle just keeps the accounting honest.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .goals { background: var(--surface-alt); }
+  .grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 6vw, 76px); align-items: center; }
+  .art { display: flex; justify-content: center; }
+  .note {
+    position: relative; margin-top: 1.6rem; padding: 16px 20px 16px 22px;
+    color: var(--ink-secondary); font-size: 0.98rem; max-width: var(--measure);
+    background: var(--secondary-subtle); border-radius: var(--radius-mood);
+  }
+  .note::before {
+    content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px;
+    border-radius: var(--radius-full); background: var(--secondary);
+  }
+  .note strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } .art { order: -1; } }
+</style>

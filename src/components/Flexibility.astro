@@ -1,0 +1,47 @@
+---
+---
+<section id="flexibility" class="flex-sec">
+  <div class="container">
+    <div class="inner">
+      <p class="eyebrow">Built for real life</p>
+      <h2>Overspend on a Tuesday? <em>Nothing breaks.</em></h2>
+      <p class="lead">
+        Most budgets treat one expensive week as a broken promise, and that’s usually where the
+        saving ends. Orielle just recalculates. Your Safe-to-Spend adjusts, your goal date shifts
+        to the honest new estimate, and tomorrow you start from where you actually are.
+      </p>
+      <ul class="tenets">
+        <li><span>The plan flexes</span> — spend more one week, and the pace adjusts instead of the plan collapsing.</li>
+        <li><span>The goal date stays honest</span> — you always see the real arrival date, not the one you’re pretending is still true.</li>
+        <li><span>There’s nothing to reset</span> — no streak to break, no starting over on Monday. Only a distance that keeps shrinking.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .flex-sec {
+    background:
+      radial-gradient(80% 60% at 15% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%),
+      var(--primary);
+    color: var(--ink-inverse);
+  }
+  .flex-sec .eyebrow { color: var(--accent); }
+  .flex-sec h2 { color: var(--ink-inverse); max-width: 18ch; }
+  .flex-sec h2 em { color: color-mix(in srgb, var(--accent) 82%, white); }
+  .inner { max-width: 64ch; }
+  .lead { color: color-mix(in srgb, var(--ink-inverse) 82%, var(--primary)); max-width: 60ch; }
+  .tenets {
+    list-style: none; padding: 0; margin: clamp(28px, 4vw, 40px) 0 0;
+    display: grid; gap: 18px; max-width: 60ch;
+  }
+  .tenets li {
+    color: color-mix(in srgb, var(--ink-inverse) 76%, var(--primary));
+    font-size: 1.05rem; padding-left: 20px; position: relative;
+  }
+  .tenets li::before {
+    content: ''; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px;
+    background: var(--accent);
+  }
+  .tenets span { color: var(--ink-inverse); font-family: var(--font-brand); font-weight: 600; }
+</style>

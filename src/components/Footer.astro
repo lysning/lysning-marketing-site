@@ -1,0 +1,28 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container inner">
+    <div class="brand">
+      <span class="wordmark">Orielle</span>
+      <p class="tag">Free · coming soon in India.</p>
+    </div>
+    <div class="links">
+      <a href="mailto:hello@orielle.app">hello@orielle.app</a>
+    </div>
+  </div>
+  <div class="container legal">© {year} Orielle. Your money, kept honest.</div>
+</footer>
+
+<style>
+  .footer { background: var(--primary); color: var(--ink-inverse); padding-block: 64px 30px; }
+  .inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
+  .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.7rem; letter-spacing: -0.02em; }
+  .tag { color: color-mix(in srgb, var(--ink-inverse) 72%, var(--primary)); margin: 8px 0 0; font-size: 0.95rem; }
+  .links a { font-family: var(--font-brand); color: var(--accent); font-weight: 600; font-size: 0.95rem; }
+  .legal {
+    margin-top: 44px; padding-top: 22px;
+    border-top: 1px solid color-mix(in srgb, var(--ink-inverse) 16%, var(--primary));
+    color: color-mix(in srgb, var(--ink-inverse) 58%, var(--primary)); font-size: 0.82rem;
+  }
+</style>
