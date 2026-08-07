@@ -1,0 +1,76 @@
+---
+// Dark-palette version of StsHome — values from design-guidelines.md §2.2, not a naive invert.
+// Read-safe roles rise on dark (primary.deep, accent.deep); fills stay mid-dark (primary.base + text.onPrimary).
+---
+<div class="sts">
+  <header class="bar">
+    <span class="hi">Good morning</span>
+    <span class="dot"></span>
+  </header>
+
+  <div class="hero">
+    <p class="label">Safe to spend today</p>
+    <p class="amount tabular" data-countup-dark="2400">₹2,400</p>
+    <p class="stability">Your fixed costs are covered through July 15.</p>
+  </div>
+
+  <div class="goal">
+    <div class="goal-top">
+      <span class="goal-name">Vacation fund</span>
+      <span class="goal-amt tabular">add ₹500 today?</span>
+    </div>
+    <div class="actions">
+      <span class="btn primary">Yes</span>
+      <span class="btn ghost">Skip</span>
+      <span class="btn ghost">Adjust</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <span class="details">Details ›</span>
+</div>
+
+<script>
+  const el = document.querySelector('.amount[data-countup-dark]');
+  if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const target = Number(el.dataset.countupDark);
+    const fmt = new Intl.NumberFormat('en-IN');
+    const dur = 900;
+    const t0 = performance.now();
+    el.textContent = '₹0';
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = '₹' + fmt.format(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+</script>
+
+<style>
+  .sts { flex: 1; padding: 34px 20px 20px; display: flex; flex-direction: column; gap: 22px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; }
+  .hi { font-family: var(--font-brand); font-weight: 600; color: #B0AAA1; font-size: 0.9rem; }
+  .dot { width: 26px; height: 26px; border-radius: 50%; background: #142920; }
+
+  .hero { text-align: center; margin-top: 12px; }
+  .label { font-size: 0.8rem; color: #8F8981; margin: 0 0 4px; }
+  .amount {
+    font-family: var(--font-brand); font-weight: 700; color: #86C9A4;
+    font-size: 3rem; letter-spacing: -0.04em; line-height: 1.1; margin: 0;
+  }
+  .stability { font-size: 0.82rem; color: #B0AAA1; margin: 8px 6px 0; }
+
+  .goal { background: #1F1810; border-radius: var(--radius-lg); padding: 14px; }
+  .goal-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .goal-name { font-family: var(--font-brand); font-weight: 600; font-size: 0.85rem; color: #D8D2C9; }
+  .goal-amt { font-size: 0.82rem; color: #F0D4B0; font-weight: 600; }
+  .actions { display: flex; gap: 8px; }
+  .btn { flex: 1; text-align: center; font-size: 0.78rem; font-weight: 600; padding: 8px 0; border-radius: var(--radius-full); }
+  .btn.primary { background: #3D6B54; color: #F0EDE8; }
+  .btn.ghost { background: #162B21; color: #B0AAA1; border: 1px solid #354C3F; }
+
+  .divider { height: 1px; background: #354C3F; margin-top: auto; }
+  .details { font-size: 0.8rem; color: #8F8981; }
+</style>

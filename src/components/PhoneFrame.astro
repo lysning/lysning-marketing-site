@@ -1,12 +1,12 @@
 ---
 // Reusable Android-ish device frame. PLACEHOLDER (ADR 0007): swap the <slot/> screens for real
 // Orielle-branded screenshots once the app rename lands in-UI.
-interface Props { label?: string; }
-const { label } = Astro.props;
+interface Props { label?: string; dark?: boolean; }
+const { label, dark = false } = Astro.props;
 ---
 <figure class="phone" aria-label={label ?? 'Orielle app screen (mockup)'}>
   <div class="bezel">
-    <div class="screen">
+    <div class:list={['screen', { dark }]}>
       <slot />
     </div>
   </div>
@@ -32,6 +32,7 @@ const { label } = Astro.props;
     display: flex;
     flex-direction: column;
   }
+  .screen.dark { background: #081410; }
   .screen::before { /* camera punch-hole */
     content: '';
     position: absolute;

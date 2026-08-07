@@ -1,0 +1,31 @@
+---
+import PhoneFrame from './PhoneFrame.astro';
+import StsHomeDark from './mock/StsHomeDark.astro';
+---
+<section id="dark-mode" class="dark-mode-sec">
+  <div class="container grid">
+    <div class="copy">
+      <p class="eyebrow">Day or night</p>
+      <h2>The same honest number, <em class="ever">after dark.</em></h2>
+      <p class="lead">
+        Orielle follows your phone's system setting — no toggle to hunt for. The palette isn't
+        just inverted: the greens and ambers that need to stay readable are lifted, not just
+        darkened, so the number you're checking at 11pm reads as clearly as it did at breakfast.
+      </p>
+    </div>
+    <div class="art">
+      <PhoneFrame label="Orielle Safe-to-Spend home, dark mode" dark>
+        <StsHomeDark />
+      </PhoneFrame>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(32px, 6vw, 76px); align-items: center;
+  }
+  .art { display: flex; justify-content: center; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } .art { order: -1; } }
+</style>
