@@ -1,5 +1,5 @@
 ---
-title: 'About Orielle (Draft)'
+title: 'About Lysning (Draft)'
 description: 'Placeholder about page — not yet ready for production.'
 draft: true
 ---

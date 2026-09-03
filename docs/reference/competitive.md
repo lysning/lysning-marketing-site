@@ -58,10 +58,10 @@ the West.
 - **Direction ↔ Precision** — 90-day spending direction vs. transaction-by-transaction
   bookkeeping. (Research: users disengage from precision-heavy, guilt-framed tools.)
 
-Orielle's stake: **local-first, forward-looking, direction-first.**
+Lysning's stake: **local-first, forward-looking, direction-first.**
 
 ## Competitor matrix
-| Product | Region | Model | Data approach | Strength | Weakness | vs. Orielle |
+| Product | Region | Model | Data approach | Strength | Weakness | vs. Lysning |
 |---------|--------|-------|---------------|----------|----------|------------|
 | **YNAB** | US/intl | Paid sub | Cloud, bank sync | Strong method + loyal base | Steep learning curve; envelope guilt; price | We're forward-looking & local-first, lower friction |
 | **Monarch** | US | Paid sub | Cloud aggregation | Polished, post-Mint household | Cloud-only; pricey | Local-first privacy; STS clarity |
@@ -101,7 +101,7 @@ Orielle's stake: **local-first, forward-looking, direction-first.**
   Play reviews. AA-native, subscription-funded (no lending/data monetization — same clean
   model as ours), India-tailored. It will beat our v1 on ingestion (auto AA sync vs. our
   manual/spreadsheet). Our separation: Fold is a **dashboard** (aggregate and view
-  everything); Orielle is a **planner** (one trusted spendable number + earmarked goals),
+  everything); Lysning is a **planner** (one trusted spendable number + earmarked goals),
   and local-first where Fold is cloud. Two readings: (1) its revenue **caps the
   India-premium lane** (~$600K/yr for the leader — see §Beachhead economics); (2) its 3.1★
   suggests the lane's leader is beatable on quality. If Fold ships a credible Safe-to-Spend,

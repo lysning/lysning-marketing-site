@@ -1,7 +1,7 @@
 # Product reference (read-only snapshots)
 
-These are **point-in-time snapshots** of the Orielle app's source-of-truth product docs, copied
-from `../orielle/docs` on **2026-07-23**. The app repo is the living source — edit there, not
+These are **point-in-time snapshots** of the Lysning app's source-of-truth product docs, copied
+from `../lysning/docs` on **2026-07-23**. The app repo is the living source — edit there, not
 here. **Re-sync manually** (re-copy) when revisiting landing copy; do not treat these as current
 without checking against the app repo.
 

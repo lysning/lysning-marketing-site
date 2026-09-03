@@ -1,4 +1,4 @@
-/* Orielle theme tokens — ported from app design-guidelines.md §2–3 (light palette).
+/* Lysning theme tokens — ported from app design-guidelines.md §2–3 (light palette).
    "The Sanctuary": calm, warm, no red anywhere. */
 :root {
   /* Primary — Deep Evergreen: protection, stability, trust */
@@ -70,7 +70,7 @@
 
   /* Type
      display  → Newsreader serif: the editorial "letter" voice, headlines + italic emphasis
-     brand    → Manrope: eyebrows, labels, buttons, and every ₹ number (tabular)
+     brand    → Manrope: eyebrows, labels, buttons, and every £ number (tabular)
      body     → Newsreader: warm, readable prose */
   --font-display: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
   --font-brand: 'Manrope Variable', system-ui, sans-serif;

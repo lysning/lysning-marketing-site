@@ -1,20 +1,20 @@
-# Orielle Design Guidelines
+# Lysning Design Guidelines
 
-The user moment we design for: it's Tuesday, 9pm. The user just got paid — or just overspent on something they didn't plan. They open Orielle to answer one question: "What can I do with this situation?" They should get a clear picture of where they stand and at least one viable path forward in under five seconds, without being judged for how they got there.
+The user moment we design for: it's Tuesday, 9pm. The user just got paid — or just overspent on something they didn't plan. They open Lysning to answer one question: "What can I do with this situation?" They should get a clear picture of where they stand and at least one viable path forward in under five seconds, without being judged for how they got there.
 
 But the deeper design failure most finance apps make is designing for **management** (a chore) instead of **orientation** (a ritual). The win condition isn't a complete dashboard — it's that the user feels *more capable when they close the app than when they opened it*. That reframes our primary surface: **Safe-to-Spend is the anchor, not the bank balance, not budgets, not net worth** — it's the one number that answers "can I say yes to things today?" Budgets, reports, and categorization are *depth* the user dives into when they have time, not breadth that confronts them every morning. Stress-test: if the home screen were only STS + a one-line stability sentence + a single goal recommitment, with everything else behind a "Details" tap, would the user still get ~80% of the daily value? If yes, that triple is the ritual anchor.
 
 Why this matters commercially: revenue is premium subscription only. The leading killer of budgeting apps isn't guilt — it's learned helplessness. Users quit when the app tells them what happened but not what they can do about it. A dashboard that shows "₹1,000 over budget" without a next step is a dead end. A dashboard that shows "₹1,000 over budget — three paths to keep July on track" is a reason to open the app again tomorrow.
-The Indian market is particularly unforgiving: free alternatives (Walnut, Google Pay insights) give users data. Orielle must give them foresight — the sense that money is not a weather system they endure, but a terrain they can navigate.
+The Indian market is particularly unforgiving: free alternatives (Walnut, Google Pay insights) give users data. Lysning must give them foresight — the sense that money is not a weather system they endure, but a terrain they can navigate.
 
-**Trust is built through architecture, not copy.** Every finance app *says* "we take privacy seriously" in a policy nobody reads; Orielle *demonstrates* it — the free tier is on-device, no-account, no-server — any usage analytics are **opt-in, anonymous, and off by default** — so users can verify we're not phoning home before they ever pay. The free tier here is a trust strategy ("try before you trust"), not just a pricing tier; the client-side-encrypted, user-owned cloud backup continues that narrative. Treat this as brand story, not a footnote in a security doc. But trust is what earns the *try* — what converts payers is **results** (foresight: projections, paths, consequence modeling), so premium copy sells outcomes, never privacy (§7).
+**Trust is built through architecture, not copy.** Every finance app *says* "we take privacy seriously" in a policy nobody reads; Lysning *demonstrates* it — the free tier is on-device, no-account, no-server — any usage analytics are **opt-in, anonymous, and off by default** — so users can verify we're not phoning home before they ever pay. The free tier here is a trust strategy ("try before you trust"), not just a pricing tier; the client-side-encrypted, user-owned cloud backup continues that narrative. Treat this as brand story, not a footnote in a security doc. But trust is what earns the *try* — what converts payers is **results** (foresight: projections, paths, consequence modeling), so premium copy sells outcomes, never privacy (§7).
 
 This doc implements the **trust → ritual → foresight** ladder from `narrative.md` ("How it becomes essential"): trust is the architecture above, the *ritual* is §1's morning orientation, and *foresight* is the path-row / projection vocabulary of §5 and §7.
 ---
 
 ## 1. Philosophy — "The Sanctuary"
 
-**The user moment we design for:** Orielle has two moments, and they are not the same screen.
+**The user moment we design for:** Lysning has two moments, and they are not the same screen.
 - **Morning = orientation.** A 30-second "where do I stand, what can I do today?" check. This screen must leave the user feeling *more powerful* than when they opened it. **No problems surface here** — no overspend alarms, no anomalies, no scolding. Orientation only.
 - **Evening (≈9pm) = reflection.** "Am I okay?" — answered in under five seconds, without judgement. Problems, insights, and calibration nudges live here, not in the morning.
 
@@ -178,7 +178,7 @@ A wash is a linear gradient from a subtle token into surface white (`Card varian
 
 The light/dark split is real rather than cosmetic: light's problem is **composition** (the paper is bright — where do the edges go), dark's problem is **luminosity** (the paper is gone — where does light come from without glowing).
 
-**Deliberately not cited,** though admired: Álvaro Castagnet (bravura — the mark that shows the hand's excitement; Orielle does not perform) and Thomas W. Schaller (structure-first is exactly right, but the painted register is cinematic, and citing him licenses drama). Coherence of register beats breadth of reference.
+**Deliberately not cited,** though admired: Álvaro Castagnet (bravura — the mark that shows the hand's excitement; Lysning does not perform) and Thomas W. Schaller (structure-first is exactly right, but the painted register is cinematic, and citing him licenses drama). Coherence of register beats breadth of reference.
 
 Big-brush transparent watercolor translates to three properties, all achievable with flat gradients:
 
@@ -479,7 +479,7 @@ The copy is where the app proves it's not just another dashboard. Visual clarity
 
 5. **Every state includes a next step.** If the copy ends without an action, it's incomplete. The action may be "keep current plan" — but that must be a conscious choice, not a dead end.
 
-6. **Voice = a competent friend, not a suit.** A drill-sergeant gym app fails; a scolding-parent finance app fails. Orielle sounds like *a thoughtful friend at a coffee shop* — never a financial advisor in a suit. Our "neutral education, not personalized advice" stance (and any LLM copy) is a personality decision before it's a compliance one. And the **deliberate non-goals** (no bill negotiation, no credit-score upsells) build trust precisely because they signal *we won't monetize your anxiety* — lean into that in the copy; it's rare in fintech.
+6. **Voice = a competent friend, not a suit.** A drill-sergeant gym app fails; a scolding-parent finance app fails. Lysning sounds like *a thoughtful friend at a coffee shop* — never a financial advisor in a suit. Our "neutral education, not personalized advice" stance (and any LLM copy) is a personality decision before it's a compliance one. And the **deliberate non-goals** (no bill negotiation, no credit-score upsells) build trust precisely because they signal *we won't monetize your anxiety* — lean into that in the copy; it's rare in fintech.
 
 7. **Celebrate detection, not just problems.** Insight copy reframes toward momentum: "You spent 40% less on dining out this month" lands completely differently from "You overspent on groceries." Where a net-worth or runway frame is available, prefer *building* (momentum) over *restriction* (deprivation) — strength-training, not a diet.
 

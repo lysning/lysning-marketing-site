@@ -4,14 +4,20 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="container inner">
     <div class="brand">
-      <span class="wordmark">Orielle</span>
-      <p class="tag">Free · coming soon in India.</p>
+      <span class="wordmark">Lysning</span>
+      <p class="tag">Free · coming soon in the UK.</p>
     </div>
     <div class="links">
-      <a href="mailto:hello@orielle.app">hello@orielle.app</a>
+      <a href="mailto:hello@lysning.app">hello@lysning.app</a>
+      <div class="social">
+        <a href="https://bsky.app/profile/lysning.app" target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://www.instagram.com/lysningapp" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.reddit.com/r/lysning/" target="_blank" rel="noopener">Reddit</a>
+        <a href="https://x.com/lysningapp" target="_blank" rel="noopener">X</a>
+      </div>
     </div>
   </div>
-  <div class="container legal">© {year} Orielle. Your money, kept honest.</div>
+  <div class="container legal">© {year} Lysning. Your money, kept honest.</div>
 </footer>
 
 <style>
@@ -19,7 +25,10 @@ const year = new Date().getFullYear();
   .inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
   .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.7rem; letter-spacing: -0.02em; }
   .tag { color: color-mix(in srgb, var(--ink-inverse) 72%, var(--primary)); margin: 8px 0 0; font-size: 0.95rem; }
+  .links { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
   .links a { font-family: var(--font-brand); color: var(--accent); font-weight: 600; font-size: 0.95rem; }
+  .social { display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+  .social a { font-size: 0.85rem; }
   .legal {
     margin-top: 44px; padding-top: 22px;
     border-top: 1px solid color-mix(in srgb, var(--ink-inverse) 16%, var(--primary));

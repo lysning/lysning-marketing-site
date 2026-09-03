@@ -7,7 +7,7 @@ App not live. User picked "explain + build trust" over waitlist/pre-register as 
 Timeline: weeks (room for design polish).
 
 ## Decision
-Site's single job is to **explain Orielle and build trust**. No email capture, no waitlist,
+Site's single job is to **explain Lysning and build trust**. No email capture, no waitlist,
 no lead form in v1.
 
 ## Consequences

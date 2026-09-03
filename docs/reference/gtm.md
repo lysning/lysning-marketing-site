@@ -1,7 +1,7 @@
 # Go-to-Market / Distribution
 Last updated: 2026-07-05
 
-Strategy doc — how the first users find Orielle. Companion to `narrative.md` (what we are) and
+Strategy doc — how the first users find Lysning. Companion to `narrative.md` (what we are) and
 `competitive.md` (who else exists). Forward-looking; unknowns are explicit **Bets** with a
 validation line. Re-verify community rules / store policies before acting on them.
 

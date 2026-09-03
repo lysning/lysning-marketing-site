@@ -7,7 +7,7 @@ India launch is free (the fully on-device freemium tier). Premium (AA sync, hous
 backup, LLM) is roadmap — not built, not priced. India-vs-Western pricing is TBD in app docs.
 
 ## Decision
-Site says Orielle is **free** for the India launch. **No premium mention, no pricing table.**
+Site says Lysning is **free** for the India launch. **No premium mention, no pricing table.**
 
 ## Consequences
 - Avoids promising unbuilt/unpriced features.

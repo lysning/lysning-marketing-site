@@ -1,7 +1,7 @@
 # Narrative
 Last updated: 2026-07-03
 
-The product story and vision. Prose reflects what Orielle is today; anything not yet known is
+The product story and vision. Prose reflects what Lysning is today; anything not yet known is
 framed as an explicit **Bet** with a validation line, not left blank.
 
 ## One-liner
@@ -44,7 +44,7 @@ cloud-first incumbents structurally won't copy. Privacy is the structural moat a
 foundation — but it is not what converts payers; **results are** (see Business model).
 
 ## How it becomes essential
-In a saturated market, being *better* isn't enough — Orielle has to become the thing users
+In a saturated market, being *better* isn't enough — Lysning has to become the thing users
 can't drop. The mechanism is a deliberate ladder: **trust → ritual → foresight.**
 
 1. **Trust (day 1, built):** a reconciled, earmark-aware Safe to Spend is a number worth

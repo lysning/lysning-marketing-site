@@ -4,7 +4,7 @@
 
 ## Context
 Marketing/landing site only. No web interface for the app is planned, now or later.
-App (Orielle) is not live yet; India-first, free.
+App (Lysning) is not live yet; India-first, free.
 
 ## Decision
 Ship a **fully static site** to a GitHub repo, served via GitHub Pages, pointed at a custom

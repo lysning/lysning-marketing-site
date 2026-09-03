@@ -1,7 +1,7 @@
 # Behavior Design
 Last updated: 2026-07-17
 
-Strategy doc — how Orielle changes user behavior, and the ethical lines it won't cross.
+Strategy doc — how Lysning changes user behavior, and the ethical lines it won't cross.
 Framework: Fogg's B=MAP (Behavior = Motivation + Ability + Prompt). Companion to
 `narrative.md` (essentialness ladder), `competitive.md` (retention benchmarks), `metrics.md`
 (measurement). Design-language constraints from `design-guidelines.md` apply throughout:
@@ -26,7 +26,7 @@ user's stated goal** — the same trust posture as local-first.
 The one behavior we wire. Everything else scales from it.
 
 > **After I** [existing phone ritual — morning coffee / commute check],
-> **I** open Orielle and see my Safe-to-Spend number,
+> **I** open Lysning and see my Safe-to-Spend number,
 > **then I** feel oriented — the number, the runway, one line of context.
 
 - **Why this behavior:** passive — survives the motivation trough (data-in stays weekly via

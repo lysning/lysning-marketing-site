@@ -1,6 +1,6 @@
-# Orielle marketing site — build spec
+# Lysning marketing site — build spec
 
-Single static page. Astro → GitHub Pages → orielle.app. Purpose: **explain Orielle + build
+Single static page. Astro → GitHub Pages → lysning.app. Purpose: **explain Lysning + build
 trust** (no forms, no signup). India-first, English, ₹. Voice + visuals inherit the app's
 design system (`reference/design-guidelines.md`). See `decisions/` for the ADRs,
 `glossary.md` for terms, and `reference/` for read-only snapshots of the app's product docs
@@ -49,7 +49,7 @@ not seen*. Never soften a data surface.
 
 4. **Earmarked goals** — *your money stays yours*
    - Goals set aside real money in your real accounts: `available = balance − Σ earmarks`. The
-     same rupee is never spent twice. Orielle **never holds, moves, or invests your money** —
+     same rupee is never spent twice. Lysning **never holds, moves, or invests your money** —
      unlike apps that take custody. (This is the user's "no money changes hands" point.) Screenshot.
 
 5. **Why the number is trustworthy**
@@ -65,7 +65,7 @@ not seen*. Never soften a data surface.
    - Trust → Ritual → Foresight. Believe the number, glance at it each morning (30-second
      orientation), then let it help you plan ahead.
 
-8. **What Orielle is NOT**
+8. **What Lysning is NOT**
    - No ads. No selling your data. No lending or credit-score upsells. No auto-investing. We
      won't monetize your anxiety.
 
@@ -74,12 +74,12 @@ not seen*. Never soften a data surface.
      leaves your device. Verifiable, not a policy nobody reads.
 
 10. **Footer**
-    - Wordmark, one line ("Orielle — free, coming soon in India"), contact email, minimal legal.
+    - Wordmark, one line ("Lysning — free, coming soon in India"), contact email, minimal legal.
 
 ## Screenshots needed (ADR 0007)
 - STS home (hero + §3), earmarked goal / pace marker (§4). Light theme, one Android device,
-  **Orielle-branded (no "Salvyn" in UI)**. Source TBD (user export or build+capture from app).
+  **Lysning-branded (no "Salvyn" in UI)**. Source TBD (user export or build+capture from app).
 
 ## Deploy
-- Astro static build → GitHub Actions → Pages. `CNAME` = orielle.app. HTTPS auto.
+- Astro static build → GitHub Actions → Pages. `CNAME` = lysning.app. HTTPS auto.
 - Umami (cookieless) snippet in base layout; hosted on Umami Cloud (free) or self-hosted.

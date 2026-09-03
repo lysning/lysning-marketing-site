@@ -10,14 +10,14 @@
 
   <div class="hero">
     <p class="label">Safe to spend today</p>
-    <p class="amount tabular" data-countup="2400">₹2,400</p>
+    <p class="amount tabular" data-countup="2400">£2,400</p>
     <p class="stability">Your fixed costs are covered through July 15.</p>
   </div>
 
   <div class="goal">
     <div class="goal-top">
       <span class="goal-name">Vacation fund</span>
-      <span class="goal-amt tabular">add ₹500 today?</span>
+      <span class="goal-amt tabular">add £500 today?</span>
     </div>
     <div class="actions">
       <span class="btn primary">Yes</span>
@@ -38,11 +38,11 @@
     const fmt = new Intl.NumberFormat('en-IN');
     const dur = 900;
     const t0 = performance.now();
-    el.textContent = '₹0';
+    el.textContent = '£0';
     const tick = (t) => {
       const p = Math.min(1, (t - t0) / dur);
       const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
-      el.textContent = '₹' + fmt.format(Math.round(target * eased));
+      el.textContent = '£' + fmt.format(Math.round(target * eased));
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);

@@ -1,9 +1,9 @@
-# ADR 0009 — Domain: orielle.app
+# ADR 0009 — Domain: lysning.app
 
 **Status:** locked (registered by user)
 
 ## Decision
-Domain **orielle.app** — registered. Modern app-signal; `.app` is on the HSTS preload list so
+Domain **lysning.app** — registered. Modern app-signal; `.app` is on the HSTS preload list so
 HTTPS is forced (good trust signal, matches ethos).
 
 ## Dependency

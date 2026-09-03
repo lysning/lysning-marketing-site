@@ -12,8 +12,8 @@ Single-page site, sections in order:
    the "no money changes hands" point + screenshot.
 5. **Why the number is trustworthy** — short reconciliation explainer (refunds/transfers netted).
 6. **The Sanctuary** — calm, no red, no scores; money as terrain you navigate (behavior-change).
-7. **The habit ladder** — Trust → Ritual → Foresight; how Orielle becomes daily.
-8. **What Orielle is NOT** — no ads, no data sale, no lending, no auto-invest.
+7. **The habit ladder** — Trust → Ritual → Foresight; how Lysning becomes daily.
+8. **What Lysning is NOT** — no ads, no data sale, no lending, no auto-invest.
 9. **Private by architecture** — on-device, no account (closing proof).
 10. **Footer** — brand, "free, coming soon to India", minimal links.
 
