@@ -1,0 +1,139 @@
+---
+title: 'Terms of Service — Beta'
+description: 'The terms for using the Lysning TestFlight beta: as-is software, no financial advice, on-device data with no backup, and how the beta ends.'
+draft: false
+---
+
+> **⚠️ DRAFT — NOT LEGAL ADVICE.** Pending review by a qualified UK lawyer before it becomes
+> the operative agreement. It describes the app as it behaves in the current TestFlight beta;
+> if the app changes, these terms change with it.
+
+**Last updated:** 10 September 2026
+**Effective date:** 10 September 2026
+
+## The short version
+
+- Lysning is **pre-release software**, free, and provided **as-is**. Things will break.
+- Your financial data lives **only on your device**. There is **no cloud backup** in the beta — if you lose the device or delete the app, that data is gone and we cannot restore it.
+- Lysning is **not financial advice**. "Safe to Spend" is arithmetic on the numbers you give it, not a recommendation.
+- Lysning **never holds, moves, or invests your money.**
+- We can **end the beta, or your access to it, at any time.**
+- You must be **18 or over**.
+
+## 1. Who these terms are with
+
+The Lysning beta is operated by **Krishna Babuji**, a sole trader based in the United Kingdom ("we", "us"). Contact: **legal@lysning.app**.
+
+By installing or using the Lysning beta ("the App"), you agree to these terms. If you do not agree, do not install it, or delete it.
+
+## 2. The beta
+
+The App is **pre-release, unfinished software** made available for testing and feedback. That means, among other things:
+
+- Features may be incomplete, change without notice, or be removed.
+- Bugs, crashes, incorrect figures and **data loss** are foreseeable outcomes of beta testing.
+- We may end the beta programme, withdraw a build, or end your participation, at any time and for any reason, without liability to you.
+- Beta builds expire. Apple's TestFlight builds stop working 90 days after upload; when a beta build expires or the programme ends, the App will stop working, and any data held only inside it may become inaccessible.
+
+The beta is provided **free of charge**. There is no subscription, no in-app purchase and no payment of any kind in the beta.
+
+## 3. Your data, and the absence of backup
+
+Your financial data — transactions, balances, accounts, goals, income, categories and settings — is created and stored **only on your device**, encrypted at rest. We hold no copy. This is described in full in our [Privacy Policy](/privacy).
+
+The direct consequence, which you accept by taking part:
+
+- **We cannot back up, restore, recover, export or delete your data for you.** We have no access to it.
+- If you delete the App, reset or lose your device, or a beta build fails or expires, **your data is permanently gone.**
+- **Do not use the beta as your only record** of anything that matters. Keep your own records — your bank remains the source of truth for your money.
+
+## 4. Not financial advice
+
+Lysning is an information tool. Nothing in it is financial, investment, tax, accounting or legal advice, and nothing in it is a personal recommendation.
+
+- The "Safe to Spend" figure, goal reserves, coverage runway and any projection are **arithmetic performed on data you enter or import**. Their accuracy depends entirely on that data being complete and correct.
+- We are **not authorised or regulated by the Financial Conduct Authority**, and the App is not a regulated service.
+- **Lysning never holds, moves, transfers or invests your money**, and never connects to your bank to initiate a payment. Decisions about your money are yours alone.
+
+## 5. Your responsibilities
+
+You agree to:
+
+- Be **18 or over** and legally able to enter into these terms.
+- Use the App only for lawful personal purposes.
+- Not reverse engineer, decompile, or attempt to extract the source code of the App, except to the extent that restriction is prohibited by law.
+- Not redistribute, resell or share your beta access, build, or invitation link with anyone else.
+- Not use the App in a way that could damage or interfere with it or with anyone else's use of it.
+
+## 6. Feedback
+
+We would like your feedback, and you are free to send it — or not.
+
+If you send us feedback, bug reports, ideas or suggestions, you grant us a **perpetual, worldwide, royalty-free, irrevocable licence to use them without restriction or obligation to you** — no confidentiality, no compensation and no attribution. Please do not send us anything you consider confidential or proprietary, and please do not include screenshots or descriptions containing your real financial figures.
+
+You keep every right you have in your own data; this licence covers only the feedback you choose to send.
+
+## 7. Our intellectual property
+
+The App, its name, wordmark, design, and all software in it remain ours. These terms give you a **personal, non-exclusive, non-transferable, revocable licence** to install and use the beta build on devices you own or control, for the duration of the beta, and nothing more.
+
+Your data is yours. We claim no rights in it, and — as above — we never receive it.
+
+## 8. Apple, TestFlight and the standard EULA
+
+The beta is distributed through Apple's **TestFlight**. In addition to these terms:
+
+- **Apple's TestFlight terms and the [Apple Media Services Terms and Conditions](https://www.apple.com/legal/internet-services/itunes/) apply to your use of TestFlight**, including Apple's collection of tester email address, device, usage and crash information. See Section 3(d) of our [Privacy Policy](/privacy).
+- These terms are between **you and us only, not with Apple**. Apple is not a party to them.
+- **Apple has no obligation to provide any maintenance or support** for the App. All support requests go to **hello@lysning.app**.
+- **Apple has no warranty obligation** in respect of the App. If the App fails to conform to any applicable warranty, you may notify Apple and Apple will refund any purchase price — the beta is free, so that amount is zero. Apple has no other warranty obligation whatsoever.
+- **Apple is not responsible** for addressing any claim by you or a third party relating to the App, including product liability, legal or regulatory non-compliance, and consumer protection or privacy claims. That responsibility is ours.
+- If a third party claims the App infringes their intellectual property rights, **we, not Apple**, are responsible for the investigation, defence, settlement and discharge of that claim.
+- You confirm you are not located in a country subject to a US Government embargo or designated as a "terrorist supporting" country, and are not on any US Government prohibited-parties list.
+- **Apple and its subsidiaries are third-party beneficiaries of these terms** and, on your acceptance, have the right to enforce them against you as a third-party beneficiary.
+- Where these terms and the **Apple Standard EULA** conflict as regards Apple's role, the Apple Standard EULA governs to the extent of the conflict.
+
+## 9. As-is, and no warranty
+
+**To the fullest extent permitted by law, the App is provided "as is" and "as available", with all faults and without warranty of any kind**, whether express, implied or statutory — including any implied warranty of satisfactory quality, fitness for a particular purpose, accuracy, or non-infringement.
+
+We do not warrant that the App will be uninterrupted, error-free, available at any time, or that any figure it displays is accurate or complete.
+
+## 10. Liability
+
+Nothing in these terms limits or excludes our liability for death or personal injury caused by our negligence, for fraud or fraudulent misrepresentation, or for anything else that cannot lawfully be limited or excluded.
+
+Subject to that, and to the fullest extent permitted by law:
+
+- We are **not liable for any financial loss, loss of savings, loss of profit, lost or corrupted data, missed payment, overdraft, fee, or any indirect or consequential loss** arising from your use of, or inability to use, the App — including any loss arising from a figure the App displayed.
+- Our total aggregate liability to you in connection with the App and these terms is limited to **£100**.
+
+This reflects that the beta is free, unfinished, and explicitly labelled as such. **Nothing here affects your statutory rights as a consumer under UK law.**
+
+## 11. Ending it
+
+- **You** may leave at any time: delete the App and, if you wish, leave the TestFlight group.
+- **We** may suspend or end your access, withdraw a build, or end the beta programme, at any time, with or without notice.
+- On termination, your licence to use the App ends and you must delete it. Sections 3, 4, 6, 7, 9, 10 and 13 survive.
+
+## 12. Transfer to the Lysning company
+
+We intend to **incorporate a UK limited company** to operate Lysning, and to transfer the App — including its App Store listing, these terms and the Privacy Policy — to that company at or before general release.
+
+You agree that we may **assign or novate these terms, and our rights and obligations under them, to that company** (or to a successor in a merger, acquisition or sale of assets), without needing your further consent. We will publish an update to these terms and the Privacy Policy naming the new operator, and update the "Last updated" date, **before or at the point the transfer takes effect**. The transfer will not reduce your rights or change how your data is handled without a further, separately notified change.
+
+You may not transfer your rights under these terms to anyone else.
+
+## 13. Changes, law and disputes
+
+- **Changes:** we may update these terms. Material changes will be posted here with a revised "Last updated" date, and, where the change affects the beta meaningfully, notified through the App or TestFlight. Continuing to use the App after a change means you accept the updated terms.
+- **Governing law:** the laws of England and Wales.
+- **Jurisdiction:** the courts of England and Wales have exclusive jurisdiction, save that if you are a consumer resident elsewhere in the UK, you may also bring proceedings in the courts of your home nation.
+- **Severability:** if any provision is unenforceable, the rest remains in force.
+- **Entire agreement:** these terms and the Privacy Policy are the whole agreement between us about the beta.
+
+## 14. Contact
+
+- General and support: **hello@lysning.app**
+- Legal: **legal@lysning.app**
+- Privacy and data rights: **privacy@lysning.app**

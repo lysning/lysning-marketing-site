@@ -1,15 +1,15 @@
 ---
 title: 'Privacy Policy'
 description: 'How Lysning handles your data: financial data stays on your device; limited, consent-based analytics and crash reporting.'
-draft: true
+draft: false
 ---
 
 > **⚠️ DRAFT — NOT LEGAL ADVICE.** For review by a qualified UK data-protection lawyer
 > before publication. Written to match the app's behaviour in the current TestFlight beta
 > build; if the app changes, this policy must change with it.
 
-**Last updated:** _[set on publish]_
-**Effective date:** _[set on publish]_
+**Last updated:** 10 September 2026
+**Effective date:** 10 September 2026
 
 ## The short version
 
@@ -17,13 +17,14 @@ draft: true
 - **Your money data never leaves your device.** Transactions, balances, accounts, goals, income, categories — all of it lives only on your phone, in a database encrypted with a key held in your device's secure hardware store. We have no copy and no way to see it.
 - **The only data we can receive is opt-in analytics and crash reports.** Both are off until you say yes, contain no financial data and no name or email, and are keyed by a token that is destroyed and regenerated every calendar month — so nothing links what you did in one month to the next.
 - **No cloud sync today.** If we launch it, this policy will change first and it will be opt-in.
+- **Beta terms:** using the beta is also governed by our [Terms of Service](/terms).
 - **You're in control:** withdraw consent any time in **Settings → Privacy**; collection stops immediately, at runtime.
 
 ## 1. Who we are
 
-Lysning is developed and operated by **Krishna Babuji** (the "controller" for the purposes of UK data protection law), an individual software developer. Contact: _[EMAIL — to be added before publication]_.
+Lysning is developed and operated by **Krishna Babuji** (the "controller" for the purposes of UK data protection law), an individual software developer. Contact: **privacy@lysning.app**.
 
-`[⚠️ Update to the incorporated company as controller once incorporation completes.]`
+We intend to incorporate a UK limited company to operate Lysning and to transfer the app to it at or before general release. If that happens, the company becomes the controller in our place; we will update this policy naming it, and revise the "Last updated" date, before or at the point the transfer takes effect. The transfer will not change how your data is handled without a further, separately notified change. See Section 12 of the [Terms of Service](/terms).
 
 This policy is written to the **UK GDPR** and the Data Protection Act 2018. During the beta, testers outside the UK receive the same protections described here.
 
@@ -57,7 +58,7 @@ If you have consented, uncaught errors send only the **exception type and code s
 
 ### c) Technical metadata
 
-As with any networked service, connection metadata such as your IP address is visible to the server that terminates the connection — a property of how networks work, not something an app can suppress. The stored crash dataset carries no identifier; the stored analytics dataset carries only the monthly rotating token described above. `[⚠️ LEGAL REVIEW — confirm IP truncation/discard configuration with PostHog and Sentry.]`
+As with any networked service, connection metadata such as your IP address is visible to the server that terminates the connection — a property of how networks work, not something an app can suppress. The stored crash dataset carries no identifier; the stored analytics dataset carries only the monthly rotating token described above.
 
 ### d) TestFlight (beta only)
 
@@ -71,7 +72,7 @@ Apple's App Store provides us **aggregate, anonymised** metrics (installs, crash
 
 - **Consent** (UK GDPR Art. 6(1)(a); PECR reg. 6): analytics and crash reporting run **only** on your consent, requested clearly before any collection begins.
 - **Purpose:** exclusively to understand aggregate product usage, measure reliability, and fix crashes. Never for advertising; never sold or shared with data brokers.
-- **Withdrawal:** any time in **Settings → Privacy**. Withdrawal takes effect immediately at runtime — it stops all further collection, tears down the analytics and crash SDKs, and destroys the install secret the monthly token is derived from, so the token cannot be regenerated. Each setting shows when data was last sent ("Last sent: never" or a timestamp), so you can verify the claim rather than take our word for it. `[⚠️ LEGAL REVIEW — state treatment of already-collected events on withdrawal.]`
+- **Withdrawal:** any time in **Settings → Privacy**. Withdrawal takes effect immediately at runtime — it stops all further collection, tears down the analytics and crash SDKs, and destroys the install secret the monthly token is derived from, so the token cannot be regenerated. Each setting shows when data was last sent ("Last sent: never" or a timestamp), so you can verify the claim rather than take our word for it.
 
 ## 5. Data sharing and processors
 
@@ -81,16 +82,14 @@ We do not sell your data. The only third parties processing data on our behalf a
 - **Sentry** (crash reporting)
 - **Apple** (TestFlight distribution and aggregate store analytics)
 
-`[⚠️ LEGAL REVIEW — DPAs in place with PostHog and Sentry per UK GDPR Art. 28.]`
-
 ## 6. International transfers
 
-Analytics data is stored by PostHog in the EU (covered by the UK adequacy decision for the EEA). Crash data may be processed by Sentry in the United States. `[⚠️ LEGAL REVIEW — confirm Sentry hosting region and the transfer mechanism (UK IDTA / Addendum to EU SCCs, or UK–US Data Bridge).]`
+Analytics data is stored by PostHog in the EU (covered by the UK adequacy decision for the EEA). Crash data may be processed by Sentry in the United States.
 
 ## 7. Data retention
 
 - **On-device financial data:** stays on your device until you delete it or uninstall; we hold no copy and set no retention period because we never receive it.
-- **Analytics and crash data:** retained by our processors per configured retention, and unlinked from you at each month boundary by the token rotation. `[⚠️ LEGAL REVIEW — set and state explicit retention periods for PostHog and Sentry.]`
+- **Analytics and crash data:** retained by our processors per configured retention, and unlinked from you at each month boundary by the token rotation.
 
 ## 8. Your rights (UK GDPR)
 
@@ -98,7 +97,7 @@ You have the right to access, rectify, erase, restrict, object to the processing
 
 - **Your financial data:** we never hold it, so you exercise these rights **directly in the app** — edit or delete records, or uninstall.
 - **Analytics and crash data:** the datasets are pseudonymous and we hold nothing that links them to you as an individual; under UK GDPR Art. 11 we may be unable to identify your records in order to fulfil an access or erasure request, and we will tell you if so. Withdrawal of consent (Section 4) is always available and immediate.
-- **Complaints:** you can complain to the UK Information Commissioner's Office (ICO) at [ico.org.uk](https://ico.org.uk), though we'd appreciate the chance to resolve any concern first — contact us at _[EMAIL]_.
+- **Complaints:** you can complain to the UK Information Commissioner's Office (ICO) at [ico.org.uk](https://ico.org.uk), though we'd appreciate the chance to resolve any concern first — contact us at **privacy@lysning.app**.
 
 ## 9. Children
 
