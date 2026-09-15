@@ -99,6 +99,6 @@ No. It stays in your own bank accounts the whole time. Lysning tracks and earmar
 
 Everything runs on your device — no account, no server for your financial data, nothing to breach. Transactions, balances, goals and settings are stored only on your phone, in a database encrypted at rest.
 
-The only things that can ever leave are **usage analytics and crash reports**, and both are off until you turn them on. Neither contains any financial data, your name or your email. Analytics events are pseudonymous rather than anonymous: each carries a token that is destroyed and regenerated every calendar month, so nothing links what you did in one month to the next. You can withdraw consent at any time in **Settings → Privacy**, and collection stops immediately.
+The only things that can ever leave are **usage analytics and crash reports**, both off until you turn them on, and a **check for app updates** each time the app opens. None of them contains any financial data, your name or your email. Analytics events are pseudonymous rather than anonymous: each carries a token that is destroyed and regenerated every calendar month, so nothing links what you did in one month to the next. You can withdraw consent at any time in **Settings → Privacy**, and collection stops immediately.
 
 The full detail is in our [Privacy Policy](/privacy).
