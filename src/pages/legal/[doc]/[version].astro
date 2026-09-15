@@ -1,0 +1,26 @@
+---
+/* Dated archive: every revision ever published, kept forever at a stable URL.
+   These are the pages that make the app's stored acceptance meaningful — the
+   version string it recorded resolves here, to the exact text in force then.
+   Never delete one, including after a change of operating entity: the old
+   revisions are the record of what earlier users agreed to. */
+import { getCollection } from 'astro:content';
+import LegalDoc from '../../../components/LegalDoc.astro';
+
+export async function getStaticPaths() {
+  const all = await getCollection('legal');
+  const newest = new Map<string, string>();
+  for (const r of all) {
+    const seen = newest.get(r.data.doc);
+    if (!seen || r.data.version > seen) newest.set(r.data.doc, r.data.version);
+  }
+  return all.map((entry) => ({
+    params: { doc: entry.data.doc, version: entry.data.version },
+    props: { entry, archived: newest.get(entry.data.doc) !== entry.data.version },
+  }));
+}
+
+const { entry, archived } = Astro.props;
+---
+
+<LegalDoc entry={entry} archived={archived} />

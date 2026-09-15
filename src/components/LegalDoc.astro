@@ -1,0 +1,145 @@
+---
+/* Renders one revision of a legal document, at either of the two URLs it lives at:
+   the canonical `/privacy` and `/terms` (newest revision, what store listings and
+   the app link to) and the dated `/legal/<doc>/<version>` (every revision, kept
+   forever). The dated URL is what makes "this is the text you accepted on that
+   date" a checkable claim rather than an assertion. */
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  entry: CollectionEntry<'legal'>;
+  /* True at the dated URL when a newer revision exists — the page then says so
+     and points at the current one, so an archived version can't be mistaken for
+     the operative agreement. */
+  archived?: boolean;
+}
+
+const { entry, archived = false } = Astro.props;
+const { Content } = await render(entry);
+
+const revisions = (await getCollection('legal'))
+  .filter((r) => r.data.doc === entry.data.doc)
+  .sort((a, b) => b.data.version.localeCompare(a.data.version));
+
+const current = revisions[0];
+const older = revisions.filter((r) => r.data.version !== current.data.version);
+
+const fmt = (v: string) =>
+  new Date(`${v}T00:00:00Z`).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+---
+
+<Base
+  title={entry.data.title}
+  description={entry.data.description}
+  ogImage={`/og/${entry.data.doc}.png`}
+>
+  <Nav />
+  <main id="main" tabindex="-1">
+    <section class="page">
+      <div class="container">
+        {entry.data.kicker && <p class="eyebrow">{entry.data.kicker}</p>}
+        <h1>{entry.data.title}</h1>
+
+        {archived && (
+          <p class="archived">
+            This is an archived version, in force from {fmt(entry.data.version)}.
+            It is no longer the operative document —{' '}
+            <a href={`/${entry.data.doc}`}>read the current one</a>.
+          </p>
+        )}
+
+        <div class="doc">
+          <Content />
+        </div>
+
+        {older.length > 0 && (
+          <section class="versions">
+            <h2>Previous versions</h2>
+            <ul>
+              {older.map((r) => (
+                <li>
+                  <a href={`/legal/${r.data.doc}/${r.data.version}`}>
+                    {fmt(r.data.version)}
+                  </a>
+                  <span>{r.data.changeSummary}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .page { padding-block: var(--section-gap); }
+  h1 { max-width: 20ch; margin-bottom: clamp(44px, 6vw, 72px); text-wrap: balance; }
+
+  .archived {
+    max-width: var(--measure);
+    margin-bottom: var(--space-8);
+    padding: var(--space-4);
+    border-left: 3px solid var(--rule);
+    color: var(--ink-secondary);
+  }
+
+  .doc :global(h2) {
+    font-size: 1.4rem;
+    font-weight: 600;
+    max-width: var(--measure);
+    text-wrap: balance;
+    padding-top: var(--space-8);
+    margin-top: var(--space-8);
+    border-top: 1px solid var(--rule);
+  }
+  .doc :global(h2:first-of-type) {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: 0;
+  }
+  .doc :global(h3) {
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.35;
+    max-width: var(--measure);
+    text-wrap: pretty;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+  .doc :global(h3 + p) { margin-top: 0; }
+  .doc :global(p) {
+    color: var(--ink-secondary);
+    max-width: var(--measure);
+  }
+  .doc :global(li) {
+    color: var(--ink-secondary);
+    max-width: var(--measure);
+    margin-bottom: var(--space-2);
+  }
+
+  .versions {
+    max-width: var(--measure);
+    padding-top: var(--space-8);
+    margin-top: var(--space-8);
+    border-top: 1px solid var(--rule);
+  }
+  .versions h2 { font-size: 1.4rem; font-weight: 600; }
+  .versions ul { list-style: none; padding: 0; }
+  .versions li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  .versions span { color: var(--ink-secondary); }
+</style>

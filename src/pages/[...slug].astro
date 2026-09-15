@@ -14,7 +14,9 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const { Content } = await render(page);
 // Cards exist for the published pages; anything else falls back to the home card.
-const ogImage = ['faq', 'privacy', 'terms'].includes(page.id) ? `/og/${page.id}.png` : '/og/home.png';
+// Privacy and Terms are not here: they have their own routes, because each is a
+// dated revision in the `legal` collection rather than a single page.
+const ogImage = page.id === 'faq' ? `/og/${page.id}.png` : '/og/home.png';
 ---
 <Base title={page.data.title} description={page.data.description} ogImage={ogImage}>
   <Nav />

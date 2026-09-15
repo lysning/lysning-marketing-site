@@ -1,0 +1,15 @@
+---
+/* Canonical `/privacy` — the URL in the app store listing, the app's link-out, and
+   the footer. It renders the newest revision rather than a file of its own, so
+   publishing a new one is adding a dated file and nothing here changes. */
+import { getCollection } from 'astro:content';
+import LegalDoc from '../components/LegalDoc.astro';
+
+const entry = (await getCollection('legal'))
+  .filter((r) => r.data.doc === 'privacy')
+  .sort((a, b) => b.data.version.localeCompare(a.data.version))[0];
+
+if (!entry) throw new Error('No privacy revision found in src/content/legal/privacy/.');
+---
+
+<LegalDoc entry={entry} />
