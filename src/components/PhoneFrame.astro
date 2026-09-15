@@ -1,16 +1,22 @@
 ---
-// Reusable Android-ish device frame. PLACEHOLDER (ADR 0007): swap the <slot/> screens for real
-// Lysning-branded screenshots once the app rename lands in-UI.
-interface Props { label?: string; dark?: boolean; }
-const { label, dark = false } = Astro.props;
+// Reusable iOS-style device frame. Pass `src` for a real app screenshot (src/assets/screens,
+// copied from lysning-app/out/screenshots/raw). Without `src` the <slot/> renders a
+// PLACEHOLDER mock (ADR 0007) — no section does this any more; every device on the page is a
+// real capture. The slot is kept for the next screen that has to be drawn before it is built.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+interface Props { label?: string; dark?: boolean; src?: ImageMetadata; alt?: string; }
+const { label, dark = false, src, alt = '' } = Astro.props;
 ---
-<figure class="phone" aria-label={label ?? 'Lysning app screen (mockup)'}>
+<figure class="phone" aria-label={label ?? (src ? 'Lysning app screen' : 'Lysning app screen (mockup)')}>
   <div class="bezel">
-    <div class:list={['screen', { dark }]}>
-      <slot />
+    <div class:list={['screen', { dark, 'palette-light': !dark && !src }]}>
+      {src
+        ? <Image src={src} alt={alt} widths={[300, 600, 900]} sizes="300px" class="shot" />
+        : <slot />}
     </div>
   </div>
-  <figcaption>Mockup — final build uses real app screenshots</figcaption>
+  {!src && <figcaption>Mockup — final build uses real app screenshots</figcaption>}
 </figure>
 
 <style>
@@ -18,28 +24,21 @@ const { label, dark = false } = Astro.props;
   .bezel {
     width: 300px;
     max-width: 78vw;
-    border-radius: 44px;
+    border-radius: 50px;
     background: #14100c;
-    padding: 12px;
+    padding: 11px;
     box-shadow: var(--shadow-lg);
   }
   .screen {
     position: relative;
-    border-radius: 34px;
+    border-radius: 40px;
     overflow: hidden;
     background: var(--bg);
-    aspect-ratio: 9 / 19.5;
+    aspect-ratio: 1206 / 2622;
     display: flex;
     flex-direction: column;
   }
   .screen.dark { background: #081410; }
-  .screen::before { /* camera punch-hole */
-    content: '';
-    position: absolute;
-    top: 12px; left: 50%; transform: translateX(-50%);
-    width: 9px; height: 9px; border-radius: 50%;
-    background: #14100c;
-    z-index: 2;
-  }
+  .shot { display: block; width: 100%; height: 100%; object-fit: cover; }
   figcaption { font-size: 0.72rem; color: var(--ink-muted); }
 </style>

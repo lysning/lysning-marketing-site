@@ -1,27 +1,29 @@
 ---
 import PhoneFrame from './PhoneFrame.astro';
-import GoalPace from './mock/GoalPace.astro';
+import goalShot from '../assets/screens/goal.png';
 ---
 <section id="goals" class="goals">
   <div class="container grid">
     <div class="art">
-      <PhoneFrame label="Lysning goal pace">
-        <GoalPace />
-      </PhoneFrame>
+      <PhoneFrame
+        label="Lysning goal screen"
+        src={goalShot}
+        alt="Flat deposit goal: £12,500 of £40,000 reserved, £700 set aside this month, on track for Jan 2030."
+      />
     </div>
     <div class="copy">
-      <p class="eyebrow">Earmarked goals</p>
-      <h2>Save for something you can <em class="warm">picture</em>, and watch the finish line move closer.</h2>
+      <p class="eyebrow">Why the date is real</p>
+      <h2>A date you can trust needs money that’s <em class="warm">actually there.</em></h2>
       <p class="lead">
-        Money saved is only as good as what it gets you. So Lysning starts with the thing itself:
-        the wedding date, the down payment, the cushion that lets you sleep. Fund a goal and the
-        amount is earmarked in your own account. The same pound is never promised twice, and every
-        week you can see exactly how far you’ve come and how far is left.
+        Most apps track a goal as a number that goes up. Lysning earmarks the money in your own
+        account, so the same pound is never promised to two things at once. That’s the difference
+        between a projection and a plan: the date holds because the money behind it isn’t quietly
+        available for something else.
       </p>
       <p class="note">
-        <strong>Lysning never holds, moves, or invests your money.</strong> Nothing changes hands.
-        Unlike apps that take custody of your savings, everything stays exactly where it is —
-        Lysning just keeps the accounting honest.
+        <strong>Lysning never holds, moves, or invests your money.</strong> Nothing changes hands,
+        and nothing leaves your bank. Unlike apps that take custody of your savings, everything
+        stays exactly where it is — Lysning just keeps the accounting honest.
       </p>
     </div>
   </div>

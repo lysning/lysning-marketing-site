@@ -1,0 +1,24 @@
+---
+import WaitlistForm from './WaitlistForm.astro';
+
+// Whole section disappears when the endpoint is unset — see WaitlistForm.astro.
+const endpoint = import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
+---
+{endpoint && (
+  <section id="waitlist" class="wl-sec wash">
+    <div class="container inner">
+      <p class="eyebrow">Coming soon · UK</p>
+      <h2>Be there the day it <em class="warm">opens.</em></h2>
+      <p class="lead">
+        Invites go out in batches. Leave your email and you’ll be in one of the early ones —
+        then nothing from us until there’s something worth saying.
+      </p>
+      <WaitlistForm id="close" />
+    </div>
+  </section>
+)}
+
+<style>
+  .inner { max-width: 60ch; }
+  .wl-sec h2 { max-width: 18ch; }
+</style>

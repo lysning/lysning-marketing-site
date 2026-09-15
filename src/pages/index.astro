@@ -3,25 +3,27 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import Problem from '../components/Problem.astro';
+import Calendar from '../components/Calendar.astro';
 import Goals from '../components/Goals.astro';
 import SafeToSpend from '../components/SafeToSpend.astro';
 import Flexibility from '../components/Flexibility.astro';
 import Trustworthy from '../components/Trustworthy.astro';
 import Privacy from '../components/Privacy.astro';
-import DarkMode from '../components/DarkMode.astro';
+import Waitlist from '../components/Waitlist.astro';
 import Footer from '../components/Footer.astro';
 ---
 <Base>
   <Nav />
-  <main>
+  <main id="main" tabindex="-1">
     <Hero />
     <Problem />
+    <Calendar />
     <Goals />
     <SafeToSpend />
     <Flexibility />
     <Trustworthy />
     <Privacy />
-    <DarkMode />
+    <Waitlist />
   </main>
   <Footer />
 </Base>

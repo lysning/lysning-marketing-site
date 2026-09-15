@@ -40,28 +40,37 @@ const social = [
 </footer>
 
 <style>
-  .footer { background: var(--primary); color: var(--ink-inverse); padding-block: 64px 30px; }
+  /* Evergreen island — see Flexibility.astro */
+  .footer {
+    --accent-deep: #F0D4B0;
+    --ink-inverse: #F0EDE8;
+    --focus: var(--ink-inverse);
+    background: var(--island); color: var(--ink-inverse); padding-block: 64px 30px;
+  }
   .inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
   .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.7rem; letter-spacing: -0.02em; }
-  .tag { color: color-mix(in srgb, var(--ink-inverse) 72%, var(--primary)); margin: 8px 0 0; font-size: 0.95rem; }
-  .links { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-  .links > a { font-family: var(--font-brand); color: var(--accent); font-weight: 600; font-size: 0.95rem; }
-  .social { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; margin-top: 4px; }
+  .tag { color: color-mix(in srgb, var(--ink-inverse) 72%, var(--island)); margin: 8px 0 0; font-size: 0.95rem; }
+  .links { display: flex; flex-direction: column; align-items: flex-end; gap: 0; }
+  .links > a {
+    font-family: var(--font-brand); color: var(--accent-deep); font-weight: 600; font-size: 0.95rem;
+    padding-block: 11px;   /* ~22px text -> 44px target */
+  }
+  .social { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: flex-end; }
   .social a {
-    display: inline-flex; padding: 5px; border-radius: 999px;
-    color: color-mix(in srgb, var(--ink-inverse) 72%, var(--primary));
+    display: inline-flex; padding: 13px; border-radius: var(--radius-full);
+    color: color-mix(in srgb, var(--ink-inverse) 72%, var(--island));
     transition: color 160ms ease-out, background-color 160ms ease-out;
   }
-  .social a:hover { color: var(--accent); background: color-mix(in srgb, var(--ink-inverse) 10%, transparent); }
+  .social a:hover { color: var(--accent-deep); background: color-mix(in srgb, var(--ink-inverse) 10%, transparent); }
   .social svg { fill: currentColor; display: block; }
   .legal {
     margin-top: 44px; padding-top: 22px;
-    border-top: 1px solid color-mix(in srgb, var(--ink-inverse) 16%, var(--primary));
-    color: color-mix(in srgb, var(--ink-inverse) 58%, var(--primary)); font-size: 0.82rem;
-    display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid color-mix(in srgb, var(--ink-inverse) 16%, var(--island));
+    color: color-mix(in srgb, var(--ink-inverse) 58%, var(--island)); font-size: 0.82rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
   }
-  .legal-links { display: flex; gap: 18px; }
-  .legal-links a { color: inherit; font-family: var(--font-brand); }
-  .legal-links a:hover { color: var(--accent); }
+  .legal-links { display: flex; gap: 18px; margin-block: -13px; }
+  .legal-links a { color: inherit; font-family: var(--font-brand); padding-block: 13px; }
+  .legal-links a:hover { color: var(--accent-deep); }
   @media (prefers-reduced-motion: reduce) { .social a { transition: none; } }
 </style>

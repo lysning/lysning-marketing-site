@@ -1,6 +1,12 @@
-/* Lysning theme tokens — ported from app design-guidelines.md §2–3 (light palette).
-   "The Sanctuary": calm, warm, no red anywhere. */
-:root {
+/* Lysning theme tokens — ported from app design-guidelines.md §2–3.
+   "The Sanctuary": calm, warm, no red anywhere.
+
+   Light is §2.1, dark is §2.2 (the app's shipped darkColors, issue #49).
+   `.palette-light` re-declares the light palette for subtrees that must stay light whatever
+   the OS says — the phone mockups, which are pictures of the app in light mode. It's a
+   descendant of :root, so it wins inside its own subtree once :root has gone dark. */
+:root,
+.palette-light {
   /* Primary — Deep Evergreen: protection, stability, trust */
   --primary: #1B4332;
   --primary-hover: #163829;
@@ -9,14 +15,21 @@
   --primary-muted: #D4E4DC;
   --primary-light: #6B9080;
 
-  /* Secondary — Desaturated Sage: spatial UI, dividers, transfers */
+  /* Secondary — Desaturated Sage: spatial UI, dividers, transfers.
+     --secondary base is spatial (dividers, dots, tints); --secondary-deep is the sage that
+     carries TEXT — base only reaches 3.2:1 on our grounds. */
   --secondary: #6B9080;
+  --secondary-deep: #4A6459;
   --secondary-subtle: #F0F5F2;
   --secondary-muted: #E8F0EC;
 
-  /* Accent — Warm Amber: the "opportunity" color, used sparingly */
+  /* Accent — Warm Amber: the "opportunity" color, used sparingly.
+     §2.1 splits this ramp by ROLE, not state: base is a fill and fails even the 3:1 floor
+     (2.67:1 on white), so neither base nor hover may ever carry text. --accent-deep is the
+     only amber legible as text — use it for every amber word, icon and hairline. */
   --accent: #C4956A;
   --accent-hover: #B0855A;
+  --accent-deep: #816246;
   --accent-subtle: #F5EDE4;
   --accent-muted: #FAF6F1;
 
@@ -37,6 +50,18 @@
   /* Borders */
   --border: #E5E2DD;
   --border-light: #F0EDE8;
+
+  /* Evergreen used as TEXT or figures on a canvas (links, wordmark, key numbers).
+     Separate from --primary because in dark --primary is a fill only: it drops to 3.07:1
+     on the dark ground, while this stays legible in both palettes. */
+  --primary-text: #1B4332;
+
+  /* Ground for the evergreen "island" sections (Flexibility, Footer) — deep-green blocks
+     that punctuate the page. In dark they deepen rather than lift; see §2.3's nocturne rule. */
+  --island: #1B4332;
+
+  /* Focus ring — the islands rebind this locally to --ink-inverse */
+  --focus: var(--primary-text);
 
   /* Feedback (muted; success only — no red on this site) */
   --success: #3D7A5E;
@@ -72,16 +97,85 @@
      display  → Newsreader serif: the editorial "letter" voice, headlines + italic emphasis
      brand    → Manrope: eyebrows, labels, buttons, and every £ number (tabular)
      body     → Newsreader: warm, readable prose */
-  --font-display: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
-  --font-brand: 'Manrope Variable', system-ui, sans-serif;
-  --font-body: 'Newsreader Variable', Georgia, serif;
+  --font-display: 'Newsreader Variable', 'Newsreader Fallback', Georgia, 'Times New Roman', serif;
+  --font-brand: 'Manrope Variable', 'Manrope Fallback', system-ui, sans-serif;
+  --font-body: 'Newsreader Variable', 'Newsreader Fallback', Georgia, serif;
 
   /* Ledger hairline — the rigid core's ruled lines */
   --rule: #DED9D0;
 
   /* Layout */
+  --nav-h: 66px;
   --maxw: 1120px;
   --measure: 60ch;            /* editorial reading measure */
   --gutter: clamp(22px, 5vw, 48px);
   --section-gap: clamp(88px, 13vw, 168px);
+}
+
+/* ── Dark palette — app design-guidelines.md §2.2 (shipped as darkColors, issue #49) ──
+   System-driven only, matching the app (userInterfaceStyle: "automatic"). No toggle:
+   the Dark mode section's own copy promises there isn't one.
+
+   Principles, per §2.2: elevation comes from the surface ladder, not shadow (shadows are
+   near-invisible on dark); never pure black; amber lifted so it reads warm, not muddy.
+   Zbukvic's nocturne rule from §2.3 governs the rest — luminosity is reserved, and nothing
+   lifts its own edges. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Primary is a FILL here, never text — see --primary-text below */
+    --primary: #3D6B54;
+    --primary-hover: #4A7A62;
+    --primary-pressed: #305C47;
+    --primary-subtle: #142920;
+    --primary-muted: #1A3328;
+    --primary-light: #6B9080;   /* unchanged — the bridge colour across both palettes */
+
+    --secondary: #8BA89A;       /* cooler + lighter than primary: temperature contrast */
+    --secondary-deep: #8BA89A;  /* on dark the spatial sage is already legible as text */
+    --secondary-subtle: #111F18;
+    --secondary-muted: #16251D;
+
+    /* Role inversion (§2.2): --accent-deep becomes the palette's most luminous note —
+       the lamp filament — while subtle/muted are deep warm darks, not light tints. */
+    --accent: #C4956A;
+    --accent-hover: #D4A87E;
+    --accent-deep: #F0D4B0;
+    --accent-subtle: #1F1810;
+    --accent-muted: #16120C;
+
+    /* The ground sits BELOW every surface: cards rest on it, not in it */
+    --bg: #081410;
+    --surface: #162B21;
+    --surface-alt: #1C3528;
+    --surface-subtle: #1C3528;
+    --surface-sunken: #050E0A;  /* must stay below --bg */
+
+    /* Warm gray, deliberately not near-white — reading by lamplight, not an inverted document */
+    --ink: #D8D2C9;
+    --ink-secondary: #B0AAA1;
+    --ink-muted: #8F8981;
+    --ink-disabled: #4A4540;
+    /* §2.2 splits text.inverse from text.onPrimary. Every --ink-inverse on this site is a
+       label on an evergreen fill, so it takes onPrimary. */
+    --ink-inverse: #F0EDE8;
+
+    /* A hairline reads as a LIGHTER line than its surface */
+    --border: #354C3F;
+    --border-light: #2A3E33;
+    --rule: #354C3F;
+
+    --primary-text: #6B9080;
+    --island: #142920;          /* deepens rather than lifts — the two blocks stay punctuation */
+    --focus: var(--ink);        /* 12.51:1 on the ground */
+
+    --success: #6BB08A;
+    --info: #7FA8BA;
+
+    /* Geometry identical to light; warm ink swapped for near-black at higher opacity.
+       The ladder does the real work here — treat shadow as an edge, not the mechanism. */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.20);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.30);
+    --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.40);
+    --accent-glow: 0 6px 20px rgba(212, 168, 126, 0.25);
+  }
 }

@@ -1,4 +1,6 @@
 ---
+import PhoneFrame from './PhoneFrame.astro';
+import receiptShot from '../assets/screens/receipt.png';
 const steps = [
   { n: '01', t: 'Refunds come back', d: 'A returned purchase is added back to what you can spend — not left double-counted.' },
   { n: '02', t: 'Transfers cancel out', d: 'Moving money between your own accounts isn’t spending, so it never dents the number.' },
@@ -7,31 +9,48 @@ const steps = [
 ---
 <section id="trustworthy">
   <div class="container">
-    <p class="eyebrow">Why the number is trustworthy</p>
-    <h2 class="head">A number is only worth believing if the <em class="ever">maths is honest.</em></h2>
-    <p class="lead sub">Lysning reconciles the noise most apps leave in your balance, so what you see is real spendable money.</p>
-    <div class="grid">
-      {steps.map((s) => (
-        <div class="step">
-          <span class="num tabular">{s.n}</span>
-          <h3>{s.t}</h3>
-          <p>{s.d}</p>
-        </div>
-      ))}
+    <p class="eyebrow">Why the maths holds</p>
+    <h2 class="head">A date is only worth planning around if the <em class="ever">arithmetic is honest.</em></h2>
+    <p class="lead sub">Lysning reconciles the noise most apps leave sitting in your balance, so both the date and the number come off real spendable money.</p>
+
+    <div class="split">
+      <div class="grid">
+        {steps.map((s) => (
+          <div class="step">
+            <span class="num tabular">{s.n}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="art">
+        <PhoneFrame
+          label="Lysning safe-to-spend breakdown"
+          src={receiptShot}
+          alt="Safe-to-spend breakdown: £1,419.83 available now (balance minus £16,500 set aside), minus £0 bills due and £522.38 unspent everyday spending, leaves £897.45 safe to spend."
+        />
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .head { max-width: 22ch; }
-  .sub { max-width: 58ch; margin-bottom: clamp(40px, 5vw, 64px); }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3.5vw, 44px); }
-  .step { padding-top: 20px; border-top: 1px solid var(--rule); }
+  .head { max-width: 24ch; }
+  .sub { max-width: 60ch; margin-bottom: clamp(36px, 4.5vw, 56px); }
+
+  .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .step { padding: 20px 0; border-top: 1px solid var(--rule); }
+  .step:last-child { border-bottom: 1px solid var(--rule); }
   .num {
     font-family: var(--font-brand); font-weight: 700; font-size: 0.82rem;
-    letter-spacing: 0.06em; color: var(--secondary); display: block; margin-bottom: 14px;
+    letter-spacing: 0.06em; color: var(--secondary-deep); display: block; margin-bottom: 10px;
   }
   .step h3 { margin: 0 0 8px; }
   .step p { color: var(--ink-secondary); margin: 0; font-size: 1rem; }
-  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 0; } .step { padding: 22px 0; } }
+
+  .art { display: flex; justify-content: center; }
+
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
 </style>

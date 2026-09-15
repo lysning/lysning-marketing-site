@@ -2,22 +2,22 @@
 const items = [
   {
     t: 'Your balance isn’t spendable money',
-    d: 'Pending charges, UPI transfers between your own accounts, and refunds all hide inside that one figure. Spend from it and you’re guessing.',
+    d: 'Pending charges, transfers between your own accounts, and refunds all hide inside that one figure. Spend from it and you’re guessing.',
   },
   {
     t: 'Savings leak',
     d: 'The money you meant to save sits right next to the money you meant to spend. Sooner or later, Tuesday’s dinner comes out of the wedding fund.',
   },
   {
-    t: 'Reports look backward',
-    d: 'A month-end summary tells you what already happened. It can’t answer the question you actually have: can I say yes to this, today?',
+    t: 'The report arrives too late',
+    d: 'A month-end summary tells you what already happened. By the time you read it, every decision it describes has been made. It can’t tell you what the months ahead make possible.',
   },
 ];
 ---
 <section id="problem">
   <div class="container">
     <p class="eyebrow">Why saving stalls</p>
-    <h2 class="head">Most people aren’t bad at saving.<br />They’re working with the <em class="warm">wrong number.</em></h2>
+    <h2 class="head">Most people aren’t bad at saving.<br />They only find out <em class="warm">afterwards.</em></h2>
     <div class="grid">
       {items.map((it, i) => (
         <div class="item">

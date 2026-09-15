@@ -1,8 +1,35 @@
 @import './theme.css';
 
+/* Metric-matched fallbacks — the swap from Georgia/Arial to the webfont reflows the
+   largest element on the page (the hero h1) without these. Newsreader's ascent is 73.5%
+   of em against Georgia's 91.7%, so the line box, not the glyph width, is what moves.
+   Computed from the font binaries with fontTools; if neither local() family exists the
+   @font-face simply doesn't resolve and the stack falls through unadjusted. */
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Georgia'), local('Times New Roman');
+  size-adjust: 98.93%;
+  ascent-override: 74.29%;
+  descent-override: 26.79%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Manrope Fallback';
+  src: local('Arial'), local('Helvetica Neue');
+  size-adjust: 95.98%;
+  ascent-override: 111.06%;
+  descent-override: 31.25%;
+  line-gap-override: 0%;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+  scroll-padding-top: calc(var(--nav-h) + var(--space-4));
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -17,7 +44,10 @@ body {
   font-optical-sizing: auto;
 }
 
-/* Warm-paper grain — atmosphere, never noise. Fixed, whisper-subtle, non-interactive. */
+/* Warm-paper grain — atmosphere, never noise. Fixed, whisper-subtle, non-interactive.
+   Light only: §2.3 is "tonal light, no figurative texture", and on the dark ground this
+   light-coloured noise would lift the whole page — the opposite of a reserved luminosity. */
+@media (prefers-color-scheme: dark) { body::before { content: none; } }
 body::before {
   content: '';
   position: fixed;
@@ -43,15 +73,61 @@ h3 { font-size: clamp(1.2rem, 2.1vw, 1.5rem); font-weight: 600; letter-spacing: 
 
 /* Italic emphasis — the "hand" in the headline. Optional amber ink via .warm */
 h1 em, h2 em, h3 em, .i { font-style: italic; font-weight: 500; }
-.warm { color: var(--accent-hover); }
-.ever { color: var(--primary); }
+.warm { color: var(--accent-deep); }
+.ever { color: var(--primary-text); }
 
 p { margin: 0 0 1rem; }
-a { color: var(--primary); text-decoration: none; }
+a { color: var(--primary-text); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Keyboard focus — deliberately not wrapped in :where(); zero specificity would let
+   component-scoped styles quietly win. Dark sections rebind --focus to --ink-inverse.
+   No border-radius here: outline already follows the element's own radius. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Skip link — keyboard-only by construction (unreachable by pointer), so :focus, not
+   :focus-visible. Sits above the sticky nav (z-index 10). */
+.skip-link {
+  --focus: var(--ink-inverse);
+  position: fixed;
+  top: var(--space-2);
+  left: var(--gutter);
+  z-index: 100;
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: var(--space-3) var(--space-5);
+  background: var(--primary);
+  color: var(--ink-inverse);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(calc(-100% - var(--space-4)));
+}
+.skip-link:focus { transform: translateY(0); }
+.skip-link:hover { text-decoration: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .skip-link { transition: transform 160ms ease-out; }
+}
 
 /* Manrope carries structure: eyebrows, labels, numbers, buttons */
 .tabular { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+
+/* Available to assistive tech, removed from the visual flow. */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
 section { padding-block: var(--section-gap); position: relative; }
@@ -62,7 +138,7 @@ section { padding-block: var(--section-gap); position: relative; }
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--secondary);
+  color: var(--secondary-deep);
   margin: 0 0 1.4rem;
 }
 
@@ -99,17 +175,6 @@ section { padding-block: var(--section-gap); position: relative; }
 
 /* Mood wash — subtle vertical gradient into the canvas. Narrative sections only. */
 .wash { background: linear-gradient(178deg, var(--accent-subtle) 0%, var(--bg) 58%); }
-
-/* Ledger — the rigid core made literal (receipt rows). Rules here are DATA, not decoration. */
-.ledger-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 15px 4px;
-  border-bottom: 1px solid var(--rule);
-}
-.ledger-row:last-child { border-bottom: 0; }
 
 .pill {
   display: inline-flex;

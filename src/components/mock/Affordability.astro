@@ -1,0 +1,64 @@
+---
+// Placeholder hero mockup — the affordability calendar (site-spec §3), reduced to its
+// headline move: saving capacity → a date. The full "what if I set aside more" comparison
+// lives in Calendar.astro's data figure; don't duplicate it here.
+// No red, no percentages-as-grades, UK date format.
+//
+// Figures are the app's own (`marketingSeed.ts`), so this placeholder agrees with
+// the screenshots it is standing in for and with Calendar.astro below — swapping in
+// the real capture should change the picture and nothing a reader can check.
+const others = [
+  { name: 'Emergency fund',     date: 'Aug 2029' },
+  { name: 'Japan, next spring', date: 'May 2027' },
+];
+---
+<div class="cal">
+  <header class="bar">
+    <span class="hi">When you can afford it</span>
+    <span class="dot"></span>
+  </header>
+
+  <div class="lead-goal">
+    <p class="label">Flat deposit · £40,000</p>
+    <p class="date tabular">Jan 2030</p>
+    <p class="basis">Setting aside £700 a month</p>
+  </div>
+
+  <ul class="list">
+    {others.map((g) => (
+      <li class="row">
+        <span class="g-name">{g.name}</span>
+        <span class="g-date tabular">{g.date}</span>
+      </li>
+    ))}
+  </ul>
+
+  <div class="divider"></div>
+  <span class="details">Adjust what you save ›</span>
+</div>
+
+<style>
+  .cal { flex: 1; padding: 34px 20px 20px; display: flex; flex-direction: column; gap: 20px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; }
+  .hi { font-family: var(--font-brand); font-weight: 600; color: var(--ink-secondary); font-size: 0.9rem; }
+  .dot { width: 26px; height: 26px; border-radius: 50%; background: var(--primary-subtle); }
+
+  .lead-goal { text-align: center; margin-top: 10px; }
+  .label { font-size: 0.8rem; color: var(--ink-muted); margin: 0 0 6px; }
+  .date {
+    font-family: var(--font-brand); font-weight: 700; color: var(--primary);
+    font-size: 2.6rem; letter-spacing: -0.03em; line-height: 1.1; margin: 0;
+  }
+  .basis { font-size: 0.82rem; color: var(--ink-secondary); margin: 8px 6px 0; }
+
+  .list { list-style: none; margin: 0; padding: 0; }
+  .row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 11px 2px; border-top: 1px solid var(--border-light);
+  }
+  .g-name { font-family: var(--font-brand); font-weight: 600; font-size: 0.85rem; color: var(--ink); }
+  .g-date { font-family: var(--font-brand); font-weight: 600; font-size: 0.85rem; color: var(--accent-deep); white-space: nowrap; }
+
+  .divider { height: 1px; background: var(--border); margin-top: auto; }
+  .details { font-size: 0.8rem; color: var(--ink-muted); }
+</style>

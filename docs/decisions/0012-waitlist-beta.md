@@ -1,0 +1,105 @@
+# ADR 0012 — Beta waitlist (supersedes 0002)
+
+**Status:** locked (user-chosen)
+
+## Context
+ADR 0002 locked the site's job as "explain + build trust", with **no** email capture, waitlist or
+lead form in v1 — correct while the app was not live and there was nothing to sign up for.
+
+That premise has changed: the app is **entering beta testing**. ADR 0002 itself left the question
+open ("is there a soft 'notify me at launch' or app-store pre-register link later?"). The answer is
+now yes — when the page goes live it should start collecting a waitlist.
+
+## Decision
+Ship a **launch waitlist** on the marketing site, in two places: the hero and a dedicated closing
+section before the footer. ADR 0002 is superseded.
+
+The submission endpoint is **not** chosen yet. The form posts to `PUBLIC_WAITLIST_ENDPOINT`, read
+via `import.meta.env` exactly as `PUBLIC_UMAMI_ID` already is (ADR 0010).
+
+**When that variable is unset, neither the hero form nor the closing section renders at all.** This
+is deliberate: it makes it impossible to merge a live email collector while the Privacy Policy still
+says we never receive an address. Choosing a provider and setting the variable is a separate act.
+
+## Consequences
+- Still fully static (ADR 0001 holds) — a third-party endpoint, no backend of our own.
+- Success is no longer comprehension alone; waitlist sign-ups become a measured outcome. The submit
+  button carries `data-umami-event="waitlist-submit"` — cookieless and PII-free, per ADR 0010.
+- **Privacy Policy must change before launch.** A waitlist makes two published claims false ("the
+  only data we can receive is opt-in analytics and crash reports"; "we never learn your name, email,
+  or any account"). Drafted in `privacy.md`; new processor rows added to
+  `legal-review-checklist.md`. The `[PROCESSOR TBD]` markers are now filled in (see the Amendment).
+- The closing section also fixes a structural gap: the page previously just stopped at
+  Dark mode → Footer with no closing moment.
+- Open: whether to keep the waitlist after GA or retire it. Provider and opt-in mode settled in
+  the Amendment below.
+
+
+---
+
+## Amendment — provider is Buttondown
+
+**Status:** locked (user-chosen, 2026-09-11)
+
+`PUBLIC_WAITLIST_ENDPOINT` is set to
+`https://buttondown.com/api/emails/embed-subscribe/<username>`.
+
+### Why Buttondown
+
+The deciding factor was not features — it was that the Privacy Policy has to **name the
+processor**, in a section sitting directly beneath the claim that there is no server and nothing
+leaves the phone. Buttondown makes that a single honest sentence: a small newsletter company,
+no advertising business, a short published sub-processor list, link tracking that can be turned
+off, and a DPA refreshed in March 2026 with an Art. 28(3) processing annex and SCCs.
+
+Cost is the trade: free only to 100 subscribers, then roughly $9/mo to 1,000 and $29/mo to
+5,000. At beta-waitlist scale that is noise, and the list is a CSV export away from portable, so
+this is a cheap decision to reverse.
+
+### Rejected
+
+| Option | Why not |
+|---|---|
+| **Kit (ConvertKit)** | Free to 10,000, but puts Kit branding on forms and emails below the Creator tier, and the disclosure would name a creator-marketing platform doing subscriber scoring and engagement analytics. Wrong tone directly under the privacy section, and we need none of what it is good at. |
+| **Mailchimp** | Free tier is 250 contacts / 500 sends a month — too small for the actual job. Decisive objection is that it is **Intuit**, the parent of Credit Karma and QuickBooks: naming it as our processor sits badly beneath "there's nothing here that makes money when you feel anxious". |
+| **Brevo** | EU-based and unlimited contacts free, which is genuinely attractive, but it is a large multi-channel marketing suite (SMS, WhatsApp, CRM) and therefore a heavier thing to disclose than the job warrants. |
+| **Formspree** | A generic form relay. Gets the address into an inbox but provides no list management, no unsubscribe handling and no sending reputation — we would be building the newsletter half ourselves anyway. |
+| **EmailOctopus** | The closest runner-up, and the one to revisit if this choice is reopened. London-based, so the international-transfer paragraph disappears entirely; 2,500 subscribers and 10,000 sends free. Lost on its branding in free-plan emails and a thinner product. |
+
+### Deferred — self-hosting the list
+
+Considered and **deferred**: a Resend + own-backend (GCP `europe-west2`) waitlist, on the basis
+that a premium backend is being built anyway and would give UK data residency.
+
+Two findings against it, recorded so the question does not get re-litigated from scratch:
+
+1. **It does not deliver the residency it was chosen for.** Resend's region setting controls
+   only where mail is *routed and sent from*; their documentation states it does not control
+   where customer data is stored, and account data, email metadata and logs remain in the US.
+   Self-storing the list and sending via Resend still puts recipient addresses through
+   US-stored logs — the work is done and the SCC paragraph is still needed.
+2. **The database is the small part.** What follows is suppression lists, bounce and complaint
+   feedback loops, one-click `List-Unsubscribe` headers (RFC 8058, required of bulk senders by
+   Gmail and Yahoo), SPF/DKIM/DMARC, and warming a cold sending domain. Deliverability is the
+   real risk: a beta invite in a spam folder is a tester lost silently, and that is the entire
+   purpose of the list.
+
+There is also a positioning cost. Today the copy can say the list lives with our email provider,
+not with us, and never in the app. Self-hosting makes Lysning-the-company the holder of user
+data for the first time — crossing the "no server" line for a mailing list, ahead of the premium
+tier that was meant to justify crossing it.
+
+**Revisit trigger:** the premium backend being *in production with an established security
+posture*, plus a product reason — wanting waitlist signups to become accounts. Not a subscriber
+count. Note that Resend Audiences stores contacts and handles unsubscribe flows for broadcasts,
+so if this is ever revisited the own-backend half is optional.
+
+### Consequences
+
+- `WaitlistForm.astro` submits as a **native form POST, not `fetch`** — Buttondown's docs
+  explicitly warn against `fetch` against the embed endpoint, because subscribers sometimes have
+  to follow the response to clear a CAPTCHA or fix a validation error. Swallowing that response
+  in JS would report failure on success, or succeed silently on failure.
+- Privacy Policy §3(f), §5 and §6 now name Buttondown and state US processing under SCCs.
+- **Before the env var is set:** accept Buttondown's DPA, turn on double opt-in, and confirm the
+  UK leg of the transfer (UK Addendum or Data Bridge) — tracked in `legal-review-checklist.md`.

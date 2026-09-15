@@ -1,0 +1,173 @@
+---
+// Beta waitlist capture (ADR 0012 + its Amendment, supersedes 0002). Provider: Buttondown.
+// Endpoint is deliberately abstracted: with PUBLIC_WAITLIST_ENDPOINT unset this renders
+// NOTHING, so a merge can't publish a live email collector while privacy.md still says
+// we never receive an address. Setting the env var is a separate, deliberate act.
+//
+// SUBMITS AS A NATIVE FORM POST, NOT fetch(). Buttondown's docs warn against fetch against
+// the embed endpoint: subscribers sometimes have to follow the response to clear a CAPTCHA
+// or fix a validation error. Intercepting it would report failure on success (CORS) or
+// success on failure. The browser navigates to Buttondown's confirmation page instead.
+interface Props { id: string }
+const { id } = Astro.props;
+
+const endpoint = import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
+const inputId = `wl-email-${id}`;
+const helpId = `wl-help-${id}`;
+const statusId = `wl-status-${id}`;
+---
+{endpoint && (
+  <form class="wl" method="POST" action={endpoint}>
+    <label for={inputId}>Email address</label>
+    <div class="row">
+      <input
+        id={inputId}
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        inputmode="email"
+        placeholder="you@example.com"
+        aria-describedby={`${helpId} ${statusId}`}
+      />
+      <button type="submit" data-umami-event="waitlist-submit">Join the waitlist</button>
+    </div>
+    <p class="help" id={helpId}>Confirm by email, then invites go out in batches. Unsubscribe in one click.</p>
+    {/* Tells Buttondown this came from an embedded form rather than a hosted page. */}
+    <input type="hidden" name="embed" value="1" />
+    {/* Honeypot: off-screen rather than display:none, which bots detect. Disabled on submit
+        so a legitimate submission never sends the field to Buttondown at all. */}
+    <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <p class="status" id={statusId} role="status" aria-live="polite" tabindex="-1"></p>
+  </form>
+)}
+
+<script>
+  // Hoisted once by Astro even though the form renders twice — hence querySelectorAll.
+  // No novalidate: the browser's own required/type=email gate is the no-JS safety net.
+  // This script only adds nicety (blur validation, a pending button state) — it never
+  // intercepts the submit, so the form works identically with JS disabled.
+  document.querySelectorAll<HTMLFormElement>('form.wl').forEach((form) => {
+    const input = form.querySelector<HTMLInputElement>('input[type="email"]')!;
+    const button = form.querySelector<HTMLButtonElement>('button')!;
+    const status = form.querySelector<HTMLParagraphElement>('.status')!;
+    const honeypot = form.querySelector<HTMLInputElement>('.hp')!;
+
+    const setStatus = (msg: string, kind = '') => {
+      status.textContent = msg;
+      status.dataset.kind = kind;
+    };
+
+    // Validate on blur, never on keystroke — don't scold someone mid-typing.
+    input.addEventListener('blur', () => {
+      if (input.value && !input.checkValidity()) {
+        setStatus('That doesn’t look like an email address — check the part after the @.', 'error');
+      } else if (status.dataset.kind === 'error') {
+        setStatus('');
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      // Honeypot filled means a bot. Drop it silently rather than explaining why.
+      if (honeypot.value) {
+        e.preventDefault();
+        return;
+      }
+      // Disabled fields aren't serialised, so Buttondown never receives the honeypot.
+      honeypot.disabled = true;
+
+      // The page is about to navigate to Buttondown's confirmation, so this state is
+      // only visible for a moment — but without it a slow connection looks like a dead
+      // button and people click twice.
+      button.textContent = 'Joining…';
+      setStatus('');
+      // Not button.disabled: disabling a submit button during its own submit event can
+      // cancel the submission in some browsers.
+      button.setAttribute('aria-disabled', 'true');
+    });
+  });
+</script>
+
+<style>
+  .wl { max-width: 32rem; margin: 1.8rem 0 0; }
+
+  label {
+    display: block;
+    font-family: var(--font-brand);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    margin-bottom: var(--space-2);
+  }
+
+  .row { display: flex; gap: var(--space-3); }
+
+  input[type='email'] {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 52px;
+    padding: 0 var(--space-4);
+    font-family: var(--font-brand);
+    font-size: 1rem;              /* ≥16px: stops iOS auto-zoom on focus */
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color 160ms ease-out;
+  }
+  input[type='email']::placeholder { color: var(--ink-muted); }
+  input[type='email']:hover { border-color: var(--secondary); }
+
+  button {
+    flex: 0 0 auto;
+    min-height: 52px;
+    padding: 0 var(--space-6);
+    font-family: var(--font-brand);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-inverse);
+    background: var(--primary);
+    border: 0;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color 160ms ease-out;
+  }
+  button:hover { background: var(--primary-hover); }
+  button:active { background: var(--primary-pressed); }
+  button:disabled,
+  button[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
+
+  .help {
+    font-family: var(--font-brand);
+    font-size: 0.82rem;
+    color: var(--ink-secondary);   /* not --ink-muted: that measures 3.3:1 */
+    margin: var(--space-2) 0 0;
+  }
+
+  /* No red anywhere in this palette, so the message text carries the meaning,
+     not the colour — both states stay well clear of 4.5:1. */
+  .status { font-family: var(--font-brand); font-size: 0.9rem; margin: var(--space-2) 0 0; }
+  .status:empty { margin: 0; }
+  .status[data-kind='error'] { color: var(--ink); font-weight: 600; }
+  .status[data-kind='ok'] { color: var(--primary-text); font-weight: 600; }
+  .status:focus { outline: none; }
+
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  /* Component-internal breakpoint: this is where the field and button stop fitting
+     side by side, independent of the 820px section-layout breakpoint. */
+  @media (max-width: 560px) {
+    .row { flex-direction: column; }
+    button { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    input[type='email'], button { transition: none; }
+  }
+</style>

@@ -1,8 +1,45 @@
 ---
 title: 'FAQ'
-description: 'Answers to common questions about Safe-to-Spend, goals, and how Lysning works.'
+description: 'How Lysning plans forward, what it does not do, and what happens to your data.'
+kicker: 'Help'
 draft: false
 ---
+
+## Getting started
+
+### Is this a budgeting app?
+
+People usually find us searching for one, so: yes, in the sense that it helps you plan what your money does. No, in the sense you're probably picturing.
+
+Most budgeting apps are retrospective. You categorise what you already spent, and at the end of the month you get a report about it. The report is accurate and it is also too late — every decision it describes has already been made.
+
+Lysning runs the other way round. It works out what you can genuinely save each month, and turns that into a date for each thing you're saving for: the month the deposit is there, the month the trip is affordable. Then it shows you what moves those dates. There's no scoring, nothing turns red, and there's no month-end verdict on how you did.
+
+### Does it connect to my bank?
+
+**No.** You add transactions yourself, or import a spreadsheet export from your bank.
+
+That's more work than tapping "connect", and it's a fair reason to decide this isn't for you. It's also the reason nothing about your money ever leaves your phone — there's no connection to a bank, so there's no copy of your financial life sitting on anyone's server.
+
+Bank sync may come later as a paid option. It isn't here now, and nothing on this site should be read as implying it is.
+
+### What do I have to do to keep it working?
+
+Add transactions as you go, or import a spreadsheet from your bank every so often. The real effort is once a month, around payday, and takes a few minutes.
+
+There's no daily check-in and nothing to keep up. The quiet stretches between paydays are the system working normally.
+
+### What if I lose my phone?
+
+The data is gone. There's no cloud copy to restore from — that's the trade for there being no server. Take encrypted backups; export is built in for exactly this reason.
+
+### What does it cost?
+
+Nothing. There's no payment path in the app at all. A paid tier is likely later for things that genuinely need a server — bank sync, sharing with a partner, cloud backup. What's here now stays free.
+
+### Is there an Android version?
+
+Both are planned from the start. iPhone is likely to open first.
 
 ## Safe-to-Spend
 
@@ -30,7 +67,7 @@ A rough example. You have £900 in your current account. Rent of £600 comes out
 
 Until your money next tops up — normally your next payday, or the start of the month if that comes first.
 
-That's the stretch the number has to carry you through, so it counts every bill due before then. Once payday lands, the slate resets and the number is calculated again for the new stretch. It's not a monthly allowance, and it's not a budget you're being held to — it's just "here's what's spare between now and the next time you get paid."
+That's the stretch the number has to carry you through, so it counts every bill due before then. Once payday lands, the slate resets and the number is calculated again for the new stretch. It's not a monthly allowance, and nothing is holding you to it — it's just "here's what's spare between now and the next time you get paid."
 
 ### How accurate is the number, really?
 

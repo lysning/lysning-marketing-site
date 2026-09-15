@@ -1,6 +1,7 @@
 # ADR 0002 — Purpose: explain + build trust; no conversion form
 
-**Status:** locked (user-chosen)
+**Status:** superseded by [ADR 0012](0012-waitlist-beta.md) — the app entered beta, so the site now
+collects a launch waitlist. The reasoning below stood while there was nothing to sign up for.
 
 ## Context
 App not live. User picked "explain + build trust" over waitlist/pre-register as the site's job.

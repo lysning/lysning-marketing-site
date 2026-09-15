@@ -1,6 +1,7 @@
 ---
 title: 'Terms of Service — Beta'
 description: 'The terms for using the Lysning TestFlight beta: as-is software, no financial advice, on-device data with no backup, and how the beta ends.'
+kicker: 'Legal'
 draft: false
 ---
 
@@ -116,11 +117,11 @@ This reflects that the beta is free, unfinished, and explicitly labelled as such
 - **We** may suspend or end your access, withdraw a build, or end the beta programme, at any time, with or without notice.
 - On termination, your licence to use the App ends and you must delete it. Sections 3, 4, 6, 7, 9, 10 and 13 survive.
 
-## 12. Transfer to the Lysning company
+## 12. Assignment
 
-We intend to **incorporate a UK limited company** to operate Lysning, and to transfer the App — including its App Store listing, these terms and the Privacy Policy — to that company at or before general release.
+You agree that we may **assign, transfer or novate these terms, and our rights and obligations under them**, to another entity in connection with a reorganisation, merger, acquisition, or sale of the business or of its assets — including the App, its App Store listing, these terms and the Privacy Policy — without needing your further consent.
 
-You agree that we may **assign or novate these terms, and our rights and obligations under them, to that company** (or to a successor in a merger, acquisition or sale of assets), without needing your further consent. We will publish an update to these terms and the Privacy Policy naming the new operator, and update the "Last updated" date, **before or at the point the transfer takes effect**. The transfer will not reduce your rights or change how your data is handled without a further, separately notified change.
+Where we do, we will publish an updated version of these terms and the Privacy Policy naming the new operator, and revise the "Last updated" date, **before or at the point the transfer takes effect**. A transfer will not reduce your rights or change how your data is handled without a further, separately notified change.
 
 You may not transfer your rights under these terms to anyone else.
 

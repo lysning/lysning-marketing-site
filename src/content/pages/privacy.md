@@ -1,6 +1,7 @@
 ---
 title: 'Privacy Policy'
 description: 'How Lysning handles your data: financial data stays on your device; limited, consent-based analytics and crash reporting.'
+kicker: 'Legal'
 draft: false
 ---
 
@@ -15,7 +16,8 @@ draft: false
 
 - **Lysning** is a personal-finance app built around your goals and a "Safe to Spend" figure.
 - **Your money data never leaves your device.** Transactions, balances, accounts, goals, income, categories — all of it lives only on your phone, in a database encrypted with a key held in your device's secure hardware store. We have no copy and no way to see it.
-- **The only data we can receive is opt-in analytics and crash reports.** Both are off until you say yes, contain no financial data and no name or email, and are keyed by a token that is destroyed and regenerated every calendar month — so nothing links what you did in one month to the next.
+- **From the app, the only data we can receive is opt-in analytics and crash reports.** Both are off until you say yes, contain no financial data and no name or email, and are keyed by a token that is destroyed and regenerated every calendar month — so nothing links what you did in one month to the next.
+- **If you join the launch waitlist on our website, we hold your email address** — only because you typed it in, only to tell you when Lysning is live, and you can unsubscribe from any message we send. It is never linked to anything in the app.
 - **No cloud sync today.** If we launch it, this policy will change first and it will be opt-in.
 - **Beta terms:** using the beta is also governed by our [Terms of Service](/terms).
 - **You're in control:** withdraw consent any time in **Settings → Privacy**; collection stops immediately, at runtime.
@@ -23,8 +25,6 @@ draft: false
 ## 1. Who we are
 
 Lysning is developed and operated by **Krishna Babuji** (the "controller" for the purposes of UK data protection law), an individual software developer. Contact: **privacy@lysning.app**.
-
-We intend to incorporate a UK limited company to operate Lysning and to transfer the app to it at or before general release. If that happens, the company becomes the controller in our place; we will update this policy naming it, and revise the "Last updated" date, before or at the point the transfer takes effect. The transfer will not change how your data is handled without a further, separately notified change. See Section 12 of the [Terms of Service](/terms).
 
 This policy is written to the **UK GDPR** and the Data Protection Act 2018. During the beta, testers outside the UK receive the same protections described here.
 
@@ -44,13 +44,13 @@ Because this data never leaves your device, **we cannot retrieve, back up, resto
 
 ## 3. Data we receive only with your consent
 
-On first launch you are asked whether to enable usage analytics and crash reporting. Both are **off until you consent**, and off in development builds.
+On first launch you are asked whether to enable usage analytics and crash reporting. Both are **off until you consent**, and off in development builds. Subsection (f) covers the separate, optional waitlist on our website.
 
 ### a) Product analytics (PostHog, EU-hosted)
 
 Events describing *how* the app is used — e.g. an onboarding step completed, a goal created, a transaction logged, "Safe to Spend" viewed, an import started or abandoned. Each event may carry only a short **allowlisted** set of non-identifying properties (a step number, a source/kind enum, a millisecond timing, a yes/no flag). The app technically enforces this allowlist, so **amounts, balances, account names, payees and transaction descriptions can never be included — even by mistake.**
 
-These events are **pseudonymous, not anonymous**: each carries a token derived on your device from a random per-install secret and the current calendar month. The token is discarded and regenerated at each month boundary, so events can be grouped within a month but never across one. We do not build user profiles, and we never call the analytics functions that would link identities (`identify()`, `alias()`) — this is enforced by automated test. We never learn your name, email, or any account.
+These events are **pseudonymous, not anonymous**: each carries a token derived on your device from a random per-install secret and the current calendar month. The token is discarded and regenerated at each month boundary, so events can be grouped within a month but never across one. We do not build user profiles, and we never call the analytics functions that would link identities (`identify()`, `alias()`) — this is enforced by automated test. We never learn your name, email, or any account **from these events**.
 
 ### b) Crash reporting (Sentry)
 
@@ -68,10 +68,17 @@ The current beta is distributed through Apple's **TestFlight**. Apple collects d
 
 Apple's App Store provides us **aggregate, anonymised** metrics (installs, crashes, coarse demographics) under Apple's own terms, subject to your device's privacy settings.
 
+### f) Launch waitlist (website)
+
+Our website at lysning.app offers an optional waitlist. If you choose to submit it, we receive **your email address and nothing else** — no name, no financial data, and nothing connected to your use of the app. There is no waitlist in the app, and submitting one is never required to use Lysning.
+
+The form is hosted by **Buttondown** (Buttondown LLC, United States), who store the address on our behalf under a data processing agreement. We use it for a single purpose: to tell you when Lysning is publicly available. Every message includes a one-click unsubscribe, and we delete the list once the launch announcement has been sent (see Section 7).
+
 ## 4. Legal basis and how we use this data
 
 - **Consent** (UK GDPR Art. 6(1)(a); PECR reg. 6): analytics and crash reporting run **only** on your consent, requested clearly before any collection begins.
 - **Purpose:** exclusively to understand aggregate product usage, measure reliability, and fix crashes. Never for advertising; never sold or shared with data brokers.
+- **Waitlist consent** (UK GDPR Art. 6(1)(a); PECR reg. 22): we email you only because you asked us to. Unsubscribe via the link in any message, or by emailing **privacy@lysning.app** — either removes you from the list entirely.
 - **Withdrawal:** any time in **Settings → Privacy**. Withdrawal takes effect immediately at runtime — it stops all further collection, tears down the analytics and crash SDKs, and destroys the install secret the monthly token is derived from, so the token cannot be regenerated. Each setting shows when data was last sent ("Last sent: never" or a timestamp), so you can verify the claim rather than take our word for it.
 
 ## 5. Data sharing and processors
@@ -81,15 +88,18 @@ We do not sell your data. The only third parties processing data on our behalf a
 - **PostHog** (product analytics; EU-hosted)
 - **Sentry** (crash reporting)
 - **Apple** (TestFlight distribution and aggregate store analytics)
+- **Umami** (website analytics; cookieless, collects no personal data and sets no cookies)
+- **Buttondown** (website waitlist; stores the email address you submit)
 
 ## 6. International transfers
 
-Analytics data is stored by PostHog in the EU (covered by the UK adequacy decision for the EEA). Crash data may be processed by Sentry in the United States.
+Analytics data is stored by PostHog in the EU (covered by the UK adequacy decision for the EEA). Crash data may be processed by Sentry in the United States. Waitlist email addresses are stored by Buttondown in the United States; the transfer relies on Standard Contractual Clauses, as set out in Buttondown's data processing agreement.
 
 ## 7. Data retention
 
 - **On-device financial data:** stays on your device until you delete it or uninstall; we hold no copy and set no retention period because we never receive it.
 - **Analytics and crash data:** retained by our processors per configured retention, and unlinked from you at each month boundary by the token rotation.
+- **Waitlist email addresses:** held until the launch announcement is sent, then deleted within 30 days — or immediately, whenever you unsubscribe or ask us to remove you.
 
 ## 8. Your rights (UK GDPR)
 
@@ -97,6 +107,7 @@ You have the right to access, rectify, erase, restrict, object to the processing
 
 - **Your financial data:** we never hold it, so you exercise these rights **directly in the app** — edit or delete records, or uninstall.
 - **Analytics and crash data:** the datasets are pseudonymous and we hold nothing that links them to you as an individual; under UK GDPR Art. 11 we may be unable to identify your records in order to fulfil an access or erasure request, and we will tell you if so. Withdrawal of consent (Section 4) is always available and immediate.
+- **Waitlist data:** unlike the datasets above, your email address **does** identify you, so your access, rectification, erasure, restriction, objection and portability rights apply to it in full and without qualification. Email **privacy@lysning.app** and we will act on it.
 - **Complaints:** you can complain to the UK Information Commissioner's Office (ICO) at [ico.org.uk](https://ico.org.uk), though we'd appreciate the chance to resolve any concern first — contact us at **privacy@lysning.app**.
 
 ## 9. Children
@@ -110,6 +121,8 @@ Your on-device data is encrypted at rest (SQLCipher) with a per-installation key
 ## 11. Changes to this policy
 
 If how data is handled changes materially — in particular if we launch **optional cloud sync/backup** or a paid tier — we will update this policy, revise the "Last updated" date, and, where required, obtain fresh consent before any new processing begins.
+
+If the operation of Lysning transfers to another entity — on a reorganisation, merger, acquisition, or sale of the business or its assets — that entity becomes the controller in our place. We will update this policy to name it, and revise the "Last updated" date, before or at the point the transfer takes effect. A transfer does not of itself change how your data is handled; any change to that would be notified as above. See Section 12 of the [Terms of Service](/terms).
 
 ## 12. Future features — not active today
 
