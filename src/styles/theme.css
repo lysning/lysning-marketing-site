@@ -43,7 +43,8 @@
   /* Text ramp — warm ink */
   --ink: #1C1917;
   --ink-secondary: #5C5854;
-  --ink-muted: #8A8580;
+  /* 4.5:1 on --surface, where the calendar figure puts it; #8A8580 only reached 3.65 */
+  --ink-muted: #736E67;
   --ink-disabled: #B5B1AC;
   --ink-inverse: #FFFFFF;
 
@@ -153,7 +154,8 @@
     /* Warm gray, deliberately not near-white — reading by lamplight, not an inverted document */
     --ink: #D8D2C9;
     --ink-secondary: #B0AAA1;
-    --ink-muted: #8F8981;
+    /* 4.5:1 on --surface and --surface-alt; #8F8981 reached only 4.33 and 3.82 */
+    --ink-muted: #A09992;
     --ink-disabled: #4A4540;
     /* §2.2 splits text.inverse from text.onPrimary. Every --ink-inverse on this site is a
        label on an evergreen fill, so it takes onPrimary. */
@@ -164,7 +166,9 @@
     --border-light: #2A3E33;
     --rule: #354C3F;
 
-    --primary-text: #6B9080;
+    /* Lifted off #6B9080, which carried links and the calendar's figures at 4.23 on
+       --surface. Stops short of --secondary-deep (#8BA89A), which also carries text here. */
+    --primary-text: #84A695;
     --island: #142920;          /* deepens rather than lifts — the two blocks stay punctuation */
     --focus: var(--ink);        /* 12.51:1 on the ground */
 
