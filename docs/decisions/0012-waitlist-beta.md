@@ -103,3 +103,28 @@ so if this is ever revisited the own-backend half is optional.
 - Privacy Policy §3(f), §5 and §6 now name Buttondown and state US processing under SCCs.
 - **Before the env var is set:** accept Buttondown's DPA, turn on double opt-in, and confirm the
   UK leg of the transfer (UK Addendum or Data Bridge) — tracked in `legal-review-checklist.md`.
+
+
+---
+
+## Amendment — beta invitations, and open/click tracking on
+
+**Status:** locked (user-chosen, 2026-09-18)
+
+Two changes, both published in the Privacy Policy revision of 2026-09-18 (not material: the app
+is untouched).
+
+1. **Purpose widened to beta invitations plus the launch announcement.** The first revision said
+   the list's single purpose was the launch email, but the beta opens in cohorts and the form
+   already promised "invites go out in batches". Deleting the list within 30 days of the launch
+   announcement is unchanged.
+2. **Open and click tracking are on.** The Buttondown amendment above counted "link tracking
+   that can be turned off" in the provider's favour; the ability stays, the choice reverses.
+   Lysning is privacy-forward, not absolutist (ADR 0010 amendment), and a solo founder
+   choosing which messages to send needs to know which ones are read. Disclosed on the form
+   itself ("We see whether our emails are opened") so the double opt-in click is also the
+   consent, which is what PECR expects of a tracking pixel — and in the policy's §3(f), §5,
+   §6 and §7.
+
+The one thing this does **not** change: the source a signup came from is still never sent to
+Buttondown. Attribution stays aggregate, in Umami.
