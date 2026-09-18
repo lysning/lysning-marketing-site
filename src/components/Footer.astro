@@ -1,13 +1,14 @@
 ---
-import { siBluesky, siInstagram, siReddit, siX } from 'simple-icons';
+import { siBluesky } from 'simple-icons';
 
 const year = new Date().getFullYear();
 
+// Only channels that are actually fed get linked. An empty-but-live account reached from the
+// footer of a trust-led site reads abandoned, which is the one impression this pitch can't
+// afford. Instagram, r/lysning and X stay registered as name defence and unlinked until each
+// has content — see the app repo's GTM doc, "Owned surfaces".
 const social = [
   { name: 'Bluesky', href: 'https://bsky.app/profile/lysning.app', icon: siBluesky },
-  { name: 'Instagram', href: 'https://www.instagram.com/lysningapp', icon: siInstagram },
-  { name: 'Reddit', href: 'https://www.reddit.com/r/lysning/', icon: siReddit },
-  { name: 'X', href: 'https://x.com/lysningapp', icon: siX },
 ];
 ---
 <footer class="footer">
