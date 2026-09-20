@@ -17,7 +17,7 @@ Status: `locked` (confirmed) · `proposed` (my recommendation, awaiting your ✔
 | 0008 | Static build with Astro | locked |
 | 0009 | Domain = lysning.app (registered) | locked |
 | 0010 | Analytics = Umami (cookieless) | locked |
-| 0012 | Beta launch waitlist (supersedes 0002) | locked |
+| 0012 | Beta launch waitlist (supersedes 0002) — Buttondown; beta invites; email tracking off | locked |
 
 > **Filename note:** `0010-analytics-posthog.md` is named after the option that was *rejected*.
 > The decision is Umami. Rename on the next tidy-up.

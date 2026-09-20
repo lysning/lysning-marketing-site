@@ -118,7 +118,7 @@ is untouched).
    the list's single purpose was the launch email, but the beta opens in cohorts and the form
    already promised "invites go out in batches". Deleting the list within 30 days of the launch
    announcement is unchanged.
-2. **Open and click tracking are on.** The Buttondown amendment above counted "link tracking
+2. ~~**Open and click tracking are on.**~~ *Superseded 2026-09-20 — see the next amendment.* The Buttondown amendment above counted "link tracking
    that can be turned off" in the provider's favour; the ability stays, the choice reverses.
    Lysning is privacy-forward, not absolutist (ADR 0010 amendment), and a solo founder
    choosing which messages to send needs to know which ones are read. Disclosed on the form
@@ -128,3 +128,43 @@ is untouched).
 
 The one thing this does **not** change: the source a signup came from is still never sent to
 Buttondown. Attribution stays aggregate, in Umami.
+
+
+---
+
+## Amendment — open and click tracking off; measure at the destination
+
+**Status:** locked (user-chosen, 2026-09-20). Supersedes item 2 of the amendment above. Item 1
+(beta invitations) stands.
+
+**Decision.** Open and click tracking are **off** in Buttondown. The form's notice ("We see
+whether our emails are opened") is removed, and the Privacy Policy revision of 2026-09-18 —
+not yet published when this was decided — was corrected in place to say emails are untracked.
+
+**Why.** Not a change of principle. Lysning stays **privacy-forward, not absolutist** (ADR 0010
+amendment): the people it is built for are not privacy-sensitive, and there is no advantage in
+building protections they will not notice or value. The reason is conversion. A tracking pixel
+needs PECR consent, and the only honest way to get it is a notice on the form, at the exact
+moment someone is deciding whether to hand over an email. That line costs signups — the one
+number this list exists for — to buy per-person open rates on a list too small for them to mean
+much. Open rates are also unreliable (Apple Mail Privacy Protection pre-fetches pixels).
+
+**What we still measure — clicks, in aggregate, at the destination.** The signal that matters
+is whether people act on an email, not whether they open it, and that is countable without
+per-person tracking:
+
+- Email links point to pages on lysning.app with a campaign parameter
+  (e.g. `?ref=beta-invite-1`). Umami counts those visits cookieless and in aggregate, as it
+  already does for every visitor — no new disclosure needed.
+- Survey completions (survey tool), debrief bookings (booking tool) and accepted TestFlight
+  invites are counted where they land.
+
+What this does not give: which *individual* clicked. Per-person follow-up in the beta comes
+from the testers' own replies and TestFlight, not from email analytics.
+
+**Revisit trigger.** If per-person clicks become necessary (e.g. chasing non-responders across
+cohorts), click tracking *alone* — redirected links, no pixel — is the proportionate step. It
+does not store anything on the person's device, so it arguably needs a policy disclosure rather
+than a notice on the form; confirm that reading in legal review before switching it on, and
+publish a new policy revision first.
+
