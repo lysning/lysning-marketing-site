@@ -1,0 +1,56 @@
+---
+// Buttondown: subscription_confirmation_redirect_url. Shown after the confirm link is clicked.
+// This page is the "what happens next" message: the welcome email can't be edited on
+// Buttondown's free plan, so it lives here instead. Keep it in step with the form's promise
+// ("invites go out in batches") and Privacy Policy §3(f) / §7 (list deleted after launch).
+import WaitlistNotice from '../../components/WaitlistNotice.astro';
+
+// Set once the questionnaire exists. Unset, step 1 says it will arrive by email.
+const surveyUrl = import.meta.env.PUBLIC_WAITLIST_SURVEY_URL;
+---
+<WaitlistNotice
+  title="You’re on the list — Lysning"
+  description="You’re on the Lysning beta list. Here’s what happens next."
+  eyebrow="You’re on the list"
+>
+  <h1>You’re in. Here’s what <em class="warm">happens next.</em></h1>
+  <p class="lead">
+    Lysning shows you when each of your goals becomes affordable — a deposit, a wedding, a
+    cushion — from what you can really set aside after your bills.
+  </p>
+
+  <ol class="steps">
+    <li>
+      <span class="num">1</span>
+      <div>
+        <h2>A short questionnaire</h2>
+        {surveyUrl ? (
+          <>
+            <p>About two minutes. It helps us put a good mix of people in each batch — nothing about your figures.</p>
+            <a class="btn" href={surveyUrl} data-umami-event="survey-open">Answer the questionnaire</a>
+          </>
+        ) : (
+          <p>About two minutes, arriving by email from hello@lysning.app. It helps us put a good mix of people in each batch — nothing about your figures.</p>
+        )}
+      </div>
+    </li>
+    <li>
+      <span class="num">2</span>
+      <div>
+        <h2>Invites go out in small batches</h2>
+        <p>By email, through Apple’s TestFlight — iPhone first. Not in the first batch? You stay on the list for the next one.</p>
+      </div>
+    </li>
+    <li>
+      <span class="num">3</span>
+      <div>
+        <h2>One email when Lysning is live</h2>
+        <p>Then we delete the list. Every email has a one-click unsubscribe in the meantime.</p>
+      </div>
+    </li>
+  </ol>
+
+  <p class="aside">
+    Questions? Email <a href="mailto:hello@lysning.app">hello@lysning.app</a> — it reaches a person.
+  </p>
+</WaitlistNotice>

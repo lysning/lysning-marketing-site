@@ -1,0 +1,42 @@
+---
+// Astro emits this as dist/404.html, which GitHub Pages serves for any missing path —
+// replacing GitHub's own 404. It is served at whatever URL was requested, so every link
+// here is root-absolute. noindex: a not-found page should never be a search result.
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Page not found — Lysning" description="This page isn’t here." noindex>
+  <Nav />
+  <main id="main" tabindex="-1">
+    <section class="nf wash">
+      <div class="container inner">
+        <p class="eyebrow">Page not found</p>
+        <h1>This page <em class="warm">isn’t here.</em></h1>
+        <p class="lead">
+          The link may be old, or the address mistyped. Everything on the site is a click away
+          from here.
+        </p>
+        <ul class="links">
+          <li><a href="/">Home</a> — when each of your goals becomes affordable</li>
+          <li><a href="/faq">FAQ</a> — how it works, and what it doesn’t do</li>
+          <li><a href="/privacy">Privacy</a> — what happens to your data</li>
+        </ul>
+        <p class="aside">
+          Followed a link from us that should have worked? Tell us at <a href="mailto:hello@lysning.app">hello@lysning.app</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .nf { min-height: 70vh; }
+  .inner { max-width: 60ch; }
+  h1 { max-width: 18ch; text-wrap: balance; margin-bottom: var(--space-6); }
+  .lead { margin-bottom: var(--space-8); }
+  .links { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); color: var(--ink-secondary); }
+  .links a { font-family: var(--font-brand); font-weight: 600; }
+  .aside { font-family: var(--font-brand); font-size: 0.9rem; color: var(--ink-secondary); margin-top: var(--space-8); }
+</style>

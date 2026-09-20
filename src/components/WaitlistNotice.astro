@@ -1,0 +1,62 @@
+---
+// Shell for the two pages Buttondown redirects to (ADR 0012, redirect-pages amendment):
+//   subscription_redirect_url              → /waitlist/check-your-inbox
+//   subscription_confirmation_redirect_url → /waitlist/confirmed
+// They replace Buttondown's generic hosted pages, and — because the welcome email can't be
+// edited on the free plan — /confirmed is where "what happens next" is told. Umami counts
+// visits to each, which is how sign-up → confirmation is measured without email tracking.
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+
+interface Props { title: string; description: string; eyebrow: string }
+const { title, description, eyebrow } = Astro.props;
+---
+<Base title={title} description={description} noindex>
+  <Nav cta={false} />
+  <main id="main" tabindex="-1">
+    <section class="notice wash">
+      <div class="container inner">
+        <p class="eyebrow">{eyebrow}</p>
+        <slot />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .notice { min-height: 70vh; }
+  .inner { max-width: 60ch; }
+  .inner :global(h1) { max-width: 18ch; text-wrap: balance; margin-bottom: var(--space-6); }
+  .inner :global(.lead) { margin-bottom: var(--space-8); }
+
+  .inner :global(.steps) { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+  .inner :global(.steps li) { display: grid; grid-template-columns: 2rem 1fr; gap: var(--space-3); align-items: start; }
+  .inner :global(.num) {
+    font-family: var(--font-display); font-weight: 600; font-size: 1.1rem;
+    color: var(--primary-text); font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+  }
+  .inner :global(.steps h2) {
+    font-size: 1.08rem; font-weight: 600; line-height: 1.35; margin: 0 0 var(--space-1);
+  }
+  .inner :global(.steps p) { color: var(--ink-secondary); margin: 0; }
+
+  .inner :global(.btn) {
+    display: inline-flex; align-items: center;
+    min-height: 52px; padding: 0 var(--space-6); margin-top: var(--space-3);
+    font-family: var(--font-brand); font-size: 1rem; font-weight: 600;
+    color: var(--ink-inverse); background: var(--primary);
+    border-radius: var(--radius-md); text-decoration: none;
+    transition: background-color 160ms ease-out;
+  }
+  .inner :global(.btn:hover) { background: var(--primary-hover); text-decoration: none; }
+  .inner :global(.btn:active) { background: var(--primary-pressed); }
+  @media (prefers-reduced-motion: reduce) { .inner :global(.btn) { transition: none; } }
+
+  .inner :global(.aside) {
+    font-family: var(--font-brand); font-size: 0.9rem; color: var(--ink-secondary);
+    margin-top: var(--space-8);
+  }
+</style>

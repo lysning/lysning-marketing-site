@@ -1,0 +1,24 @@
+---
+// Buttondown: subscription_redirect_url. Shown straight after the form is submitted.
+import WaitlistNotice from '../../components/WaitlistNotice.astro';
+---
+<WaitlistNotice
+  title="Check your inbox — Lysning"
+  description="One more step: confirm your email to join the Lysning beta list."
+  eyebrow="One more step"
+>
+  <h1>Check your inbox.</h1>
+  <p class="lead">
+    We’ve sent a confirmation email from <strong>hello@lysning.app</strong>. Click the link in it
+    and you’re on the list — until then, you aren’t.
+  </p>
+  <div class="card">
+    <p>
+      Not there after a few minutes? Look in spam or Promotions. If it still hasn’t
+      arrived, <a href="/#waitlist">try again</a> — a typo in the address is the usual reason.
+    </p>
+  </div>
+  <p class="aside">
+    Questions? Email <a href="mailto:hello@lysning.app">hello@lysning.app</a> — it reaches a person.
+  </p>
+</WaitlistNotice>

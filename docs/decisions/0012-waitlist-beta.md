@@ -168,3 +168,26 @@ does not store anything on the person's device, so it arguably needs a policy di
 than a notice on the form; confirm that reading in legal review before switching it on, and
 publish a new policy revision first.
 
+
+---
+
+## Amendment — our own pages for "check your inbox" and "what happens next"
+
+**Status:** locked (user-chosen, 2026-09-20)
+
+Buttondown's confirmation and welcome emails can't be edited on the free plan, so the default
+welcome ("You're in! … You'll start receiving emails right here") is all a new subscriber gets.
+Instead of paying to edit it, the explanation moves onto the site:
+
+- `/waitlist/check-your-inbox` — Buttondown `subscription_redirect_url`, shown after submitting.
+- `/waitlist/confirmed` — Buttondown `subscription_confirmation_redirect_url`, shown after the
+  confirm click. Carries "what happens next" (questionnaire → batches via TestFlight → one
+  launch email, then the list is deleted) and, once `PUBLIC_WAITLIST_SURVEY_URL` is set, the
+  questionnaire link.
+
+Both are `noindex` and hide the nav CTA. Umami's page counts on the two give the sign-up →
+confirmation rate in aggregate, consistent with email tracking being off.
+
+A Google Group was considered as a replacement for Buttondown and rejected: no way to join from
+a static form, reply-all exposure on a discussion list, weaker deliverability, and no DPA for a
+consumer group.
