@@ -106,10 +106,12 @@ input:focus-visible,
   background: var(--primary);
   color: var(--ink-inverse);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  /* Shadow only while shown: parked off-screen, the large shadow still bled into the top
+     of every page as a faint smudge behind the wordmark. */
+  box-shadow: none;
   transform: translateY(calc(-100% - var(--space-4)));
 }
-.skip-link:focus { transform: translateY(0); }
+.skip-link:focus { transform: translateY(0); box-shadow: var(--shadow-lg); }
 .skip-link:hover { text-decoration: none; }
 @media (prefers-reduced-motion: no-preference) {
   .skip-link { transition: transform 160ms ease-out; }

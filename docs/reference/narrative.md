@@ -109,10 +109,8 @@ Whichever converts to paid first becomes primary; the others stay served, not ch
   (`competitive.md` §Non-goals).
 
 ## Market & rollout
-- **Launch:** India first (INR default, AA-framework-ready) — the **validation market**:
-  prove the import → trusted-STS → retention loop and AA sync UX cheaply.
-- **Revenue markets, in sequence:** **UK** (first Western entry — cheap open banking,
-  English, beatable incumbents) → **US** (highest ARPU) → **EU** country-by-country.
+- **Launch:** UK first (GBP default) — cheap open banking, English, beatable incumbents.
+- **Revenue markets, in sequence:** **US** (highest ARPU) → **EU** country-by-country.
   **AUS and Canada parked** (CDR accreditation cost; CA rails not live). Full rationale:
   `competitive.md` §Beachhead economics.
 - Target user everywhere: **20–40 salaried, outcome-driven** — the pitch leads with the
@@ -120,12 +118,13 @@ Whichever converts to paid first becomes primary; the others stay served, not ch
   not the headline.
 
 ## Business model
-**Premium subscription.** No ads, no data sale. The split is also the privacy boundary — and
-a deliberate segmentation: **the free tier is the privacy-maximal product** (fully on-device,
-settings turned all the way up, served indefinitely — not a crippled trial), while **premium
-sells results**, because paying customers weight value-for-money and outcomes over privacy.
-Privacy earns the trust to try; foresight — consequence modeling, sync convenience, household
-view — is what converts. Premium features are sequenced against the foresight rung of the
+**Premium subscription.** No ads, no data sale. **Privacy-forward, not absolutist** (restated
+2026-09-18; the framing "the free tier is the privacy-maximal product" is superseded, as it is
+in the app repo's narrative). Privacy maximalists are not the target — they go back to
+spreadsheets or stay on free, and do not convert. Lysning uses disclosed usage signals to find
+product-market fit, always honours a person's privacy choice, and treats privacy and security
+done well as a small edge over large competitors, not as the identity. Privacy earns the trust
+to try; foresight — consequence modeling, sync convenience, household view — is what converts. Premium features are sequenced against the foresight rung of the
 essentialness ladder (above).
 
 - **Free — fully on-device.** Safe-to-Spend calendar, manual + spreadsheet ingestion,

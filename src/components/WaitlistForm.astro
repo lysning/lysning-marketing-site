@@ -13,6 +13,8 @@ const { id } = Astro.props;
 
 const endpoint = import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
 const inputId = `wl-email-${id}`;
+const ukId = `wl-uk-${id}`;
+const phoneId = `wl-phone-${id}`;
 const helpId = `wl-help-${id}`;
 const statusId = `wl-status-${id}`;
 ---
@@ -30,8 +32,27 @@ const statusId = `wl-status-${id}`;
         placeholder="you@example.com"
         aria-describedby={`${helpId} ${statusId}`}
       />
-      <button type="submit" data-umami-event="waitlist-submit">Join the waitlist</button>
     </div>
+    <div class="row meta">
+      <div class="field">
+        <label for={ukId}>Are you based in the UK?</label>
+        <select id={ukId} name="metadata__uk" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for={phoneId}>Which phone do you use?</label>
+        <select id={phoneId} name="metadata__phone" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="iphone">iPhone</option>
+          <option value="android">Android</option>
+          <option value="both">Both</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" data-umami-event="waitlist-submit">Join the waitlist</button>
     <p class="help" id={helpId}>Confirm by email, then invites go out in batches. Unsubscribe in one click.</p>
     {/* Tells Buttondown this came from an embedded form rather than a hosted page. */}
     <input type="hidden" name="embed" value="1" />
@@ -76,6 +97,10 @@ const statusId = `wl-status-${id}`;
       // Disabled fields aren't serialised, so Buttondown never receives the honeypot.
       honeypot.disabled = true;
 
+      // Kept in this tab only, so /waitlist/* can pre-fill the questionnaire's email field
+      // (SurveyLink.astro). Never sent anywhere but the Tally link.
+      try { sessionStorage.setItem('lysning:wl-email', input.value.trim().toLowerCase()); } catch { /* storage blocked */ }
+
       // The page is about to navigate to Buttondown's confirmation, so this state is
       // only visible for a moment — but without it a slow connection looks like a dead
       // button and people click twice.
@@ -101,6 +126,24 @@ const statusId = `wl-status-${id}`;
   }
 
   .row { display: flex; gap: var(--space-3); }
+  .row.meta { margin-top: var(--space-3); }
+  .wl > button { margin-top: var(--space-4); }
+  .field { flex: 1 1 auto; min-width: 0; }
+  .field label { margin-bottom: var(--space-2); }
+
+  select {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 var(--space-4);
+    font-family: var(--font-brand);
+    font-size: 1rem;              /* ≥16px: stops iOS auto-zoom on focus */
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color 160ms ease-out;
+  }
+  select:hover { border-color: var(--secondary); }
 
   input[type='email'] {
     flex: 1 1 auto;

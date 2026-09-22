@@ -1,13 +1,21 @@
 ---
 // The CTA is gated on the same env var as the form itself (ADR 0012) — without it the
 // #waitlist section doesn't render, so the button would point at nothing.
+//
+// The href is `/#waitlist`, not `#waitlist`: the section only exists on the home page, so a
+// bare fragment did nothing on /faq, /privacy or /terms. From the home page itself the
+// browser still treats `/#waitlist` as an in-page jump — no reload.
+//
+// `cta={false}` hides the button on pages where someone has just joined (/waitlist/*).
+interface Props { cta?: boolean }
+const { cta = true } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
 ---
 <nav class="nav" aria-label="Primary">
   <div class="container inner">
     <a href="/" class="wordmark">Lysning</a>
-    {endpoint
-      ? <a href="#waitlist" class="cta">Join the waitlist</a>
+    {endpoint && cta
+      ? <a href="/#waitlist" class="cta">Join the waitlist</a>
       : <span class="pill">Coming soon · UK</span>}
   </div>
 </nav>

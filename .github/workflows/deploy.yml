@@ -28,6 +28,7 @@ jobs:
       - run: npm run build
         env:
           PUBLIC_WAITLIST_ENDPOINT: ${{ vars.PUBLIC_WAITLIST_ENDPOINT }}
+          PUBLIC_WAITLIST_SURVEY_URL: ${{ vars.PUBLIC_WAITLIST_SURVEY_URL }}
           PUBLIC_UMAMI_ID: ${{ vars.PUBLIC_UMAMI_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
