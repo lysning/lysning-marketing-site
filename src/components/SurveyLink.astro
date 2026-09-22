@@ -1,0 +1,31 @@
+---
+// Link to the Tally questionnaire (ADR 0012, Tally amendment).
+//
+// PUBLIC_WAITLIST_SURVEY_URL is the bare form URL (https://tally.so/r/<id>) — no query string.
+// This component adds:
+//   ref=<where>   Tally hidden field: which page the respondent came from.
+//   email=<addr>  Tally hidden field that pre-fills the email question, so answers match the
+//                 subscriber without retyping. Taken from sessionStorage, written by
+//                 WaitlistForm on submit. It never leaves the visitor's browser except in this
+//                 link to Tally, and it is never put on a lysning.app URL (Umami would see it).
+// If sessionStorage is empty (confirm link opened in another browser, private mode), the link
+// still works — the respondent types their email.
+interface Props { ref: string; label?: string }
+const { ref, label = 'Answer the questionnaire' } = Astro.props;
+const base = import.meta.env.PUBLIC_WAITLIST_SURVEY_URL;
+const href = base ? `${base}${base.includes('?') ? '&' : '?'}ref=${encodeURIComponent(ref)}` : undefined;
+---
+{href && (
+  <a class="btn" href={href} data-survey-link data-umami-event="survey-open" data-umami-event-ref={ref}>{label}</a>
+)}
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('a[data-survey-link]').forEach((a) => {
+    let email: string | null = null;
+    try { email = sessionStorage.getItem('lysning:wl-email'); } catch { /* storage blocked */ }
+    if (!email) return;
+    const url = new URL(a.href);
+    url.searchParams.set('email', email);
+    a.href = url.toString();
+  });
+</script>

@@ -154,7 +154,7 @@ is whether people act on an email, not whether they open it, and that is countab
 per-person tracking:
 
 - Email links point to pages on lysning.app with a campaign parameter
-  (e.g. `?ref=beta-invite-1`). Umami counts those visits cookieless and in aggregate, as it
+  (UTM parameters, e.g. `?utm_source=buttondown&utm_medium=email&utm_campaign=beta-invite-1`). Umami counts those visits cookieless and in aggregate, as it
   already does for every visitor — no new disclosure needed.
 - Survey completions (survey tool), debrief bookings (booking tool) and accepted TestFlight
   invites are counted where they land.
@@ -212,3 +212,38 @@ first; the embed form's inputs were hand-added to match.
 No question about how checking a balance feels (an interview-screener question named separately
 in `narrative.md`'s persona table) — reads as therapy copy on a signup form. Nothing about actual
 balances or figures is asked, consistent with `/waitlist/confirmed`'s own line to that effect.
+
+
+---
+
+## Amendment — the questionnaire lives in Tally, offered at the moment of signup
+
+**Status:** locked (user-chosen, 2026-09-22)
+
+**Where the questions live.** UK and phone are asked on the signup form (amendment above), so
+every subscriber carries the two facts that decide eligibility. The remaining four — money most
+months, income pattern, how they keep on top of money, the last thing they saved for — are a
+Tally form (`https://tally.so/r/0Q4pPA`).
+
+Buttondown's own subscription questionnaire was rejected: it renders only on Buttondown's
+hosted page, *before* the email field, so lysning.app signups would never see it and hosted-page
+signups would face six questions before joining. Buttondown surveys are one question each and
+immutable once published.
+
+**How people get to it — built for completion, not just presence.**
+
+- Offered on **`/waitlist/check-your-inbox`** ("While you wait: four quick questions"), the
+  moment of highest intent, and again as step 1 on **`/waitlist/confirmed`**.
+- `SurveyLink.astro` builds the link from the bare `PUBLIC_WAITLIST_SURVEY_URL`, adding
+  `ref=check-inbox` / `ref=confirmed-page` (Tally hidden field) and, when available, `email=`
+  so Tally's email question is pre-filled. The email comes from `sessionStorage`, written by
+  `WaitlistForm` on submit; it is sent only to Tally and never appears on a lysning.app URL,
+  so Umami never sees it. If absent, the respondent types it.
+- Umami counts `survey-open` clicks (with the `ref`) in aggregate.
+
+**Matching.** Tally answers are joined to Buttondown subscribers on lower-cased email. Answers
+from people who never confirm, or who aren't on the list, are deleted; unsubscribing deletes
+the Tally response too, so answers share the list's retention.
+
+**Privacy follow-up.** Tally is a new processor holding four answers per subscriber, and
+Buttondown now also holds UK/phone. Both go into the next policy revision (§3(f), §5, §6, §7).

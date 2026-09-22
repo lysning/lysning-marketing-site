@@ -4,6 +4,7 @@
 // Buttondown's free plan, so it lives here instead. Keep it in step with the form's promise
 // ("invites go out in batches") and Privacy Policy §3(f) / §7 (list deleted after launch).
 import WaitlistNotice from '../../components/WaitlistNotice.astro';
+import SurveyLink from '../../components/SurveyLink.astro';
 
 // Set once the questionnaire exists. Unset, step 1 says it will arrive by email.
 const surveyUrl = import.meta.env.PUBLIC_WAITLIST_SURVEY_URL;
@@ -26,11 +27,15 @@ const surveyUrl = import.meta.env.PUBLIC_WAITLIST_SURVEY_URL;
         <h2>A short questionnaire</h2>
         {surveyUrl ? (
           <>
-            <p>About two minutes. It helps us put a good mix of people in each batch — nothing about your figures.</p>
-            <a class="btn" href={surveyUrl} data-umami-event="survey-open">Answer the questionnaire</a>
+            <p>
+              Four questions, about a minute. It’s how we choose each batch, so the list alone
+              isn’t quite enough — nothing about your figures. Already answered it while you
+              waited? You’re all set.
+            </p>
+            <SurveyLink ref="confirmed-page" />
           </>
         ) : (
-          <p>About two minutes, arriving by email from hello@lysning.app. It helps us put a good mix of people in each batch — nothing about your figures.</p>
+          <p>About a minute, arriving by email from hello@lysning.app. It helps us put a good mix of people in each batch — nothing about your figures.</p>
         )}
       </div>
     </li>

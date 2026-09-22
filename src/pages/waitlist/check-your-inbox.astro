@@ -1,6 +1,12 @@
 ---
 // Buttondown: subscription_redirect_url. Shown straight after the form is submitted.
 import WaitlistNotice from '../../components/WaitlistNotice.astro';
+import SurveyLink from '../../components/SurveyLink.astro';
+
+// The questionnaire is offered here as well as on /confirmed: this is the moment of highest
+// intent (they have just signed up and are waiting for an email anyway). Answers from people
+// who then never confirm are discarded when matching against the list.
+const surveyUrl = import.meta.env.PUBLIC_WAITLIST_SURVEY_URL;
 ---
 <WaitlistNotice
   title="Check your inbox — Lysning"
@@ -12,7 +18,17 @@ import WaitlistNotice from '../../components/WaitlistNotice.astro';
     We’ve sent a confirmation email from <strong>hello@lysning.app</strong>. Click the link in it
     and you’re on the list — until then, you aren’t.
   </p>
-  <div class="card">
+  {surveyUrl && (
+    <div class="card survey">
+      <h2>While you wait: four quick questions</h2>
+      <p>
+        About a minute. It’s how we choose who gets each batch of invites — nothing about
+        your figures.
+      </p>
+      <SurveyLink ref="check-inbox" />
+    </div>
+  )}
+  <div class="card help">
     <p>
       Not there after a few minutes? Look in spam or Promotions. If it still hasn’t
       arrived, <a href="/#waitlist">try again</a> — a typo in the address is the usual reason.
@@ -22,3 +38,9 @@ import WaitlistNotice from '../../components/WaitlistNotice.astro';
     Questions? Email <a href="mailto:hello@lysning.app">hello@lysning.app</a> — it reaches a person.
   </p>
 </WaitlistNotice>
+
+<style>
+  .survey { margin-bottom: var(--space-5); }
+  .survey h2 { font-size: 1.15rem; font-weight: 600; margin: 0 0 var(--space-2); }
+  .survey p { color: var(--ink-secondary); margin: 0; }
+</style>
