@@ -109,10 +109,8 @@ Whichever converts to paid first becomes primary; the others stay served, not ch
   (`competitive.md` §Non-goals).
 
 ## Market & rollout
-- **Launch:** India first (INR default, AA-framework-ready) — the **validation market**:
-  prove the import → trusted-STS → retention loop and AA sync UX cheaply.
-- **Revenue markets, in sequence:** **UK** (first Western entry — cheap open banking,
-  English, beatable incumbents) → **US** (highest ARPU) → **EU** country-by-country.
+- **Launch:** UK first (GBP default) — cheap open banking, English, beatable incumbents.
+- **Revenue markets, in sequence:** **US** (highest ARPU) → **EU** country-by-country.
   **AUS and Canada parked** (CDR accreditation cost; CA rails not live). Full rationale:
   `competitive.md` §Beachhead economics.
 - Target user everywhere: **20–40 salaried, outcome-driven** — the pitch leads with the
