@@ -191,3 +191,24 @@ confirmation rate in aggregate, consistent with email tracking being off.
 A Google Group was considered as a replacement for Buttondown and rejected: no way to join from
 a static form, reply-all exposure on a discussion list, weaker deliverability, and no DPA for a
 consumer group.
+
+
+---
+
+## Amendment — two metadata fields on the signup form itself
+
+**Status:** locked (user-chosen, 2026-09-22)
+
+`WaitlistForm.astro` asks two extra required questions alongside email, posted to Buttondown as
+subscriber metadata (`metadata__<key>` naming, per Buttondown's embed-form convention):
+
+- `metadata__uk` — "Are you based in the UK?" (Yes / No)
+- `metadata__phone` — "Which phone do you use?" (iPhone / Android / Both)
+
+Both are plain `&lt;select&gt;` fields, required to submit but not gated on the answer — a "No" or
+"Android" response still joins the list. Configured as custom fields in the Buttondown dashboard
+first; the embed form's inputs were hand-added to match.
+
+No question about how checking a balance feels (an interview-screener question named separately
+in `narrative.md`'s persona table) — reads as therapy copy on a signup form. Nothing about actual
+balances or figures is asked, consistent with `/waitlist/confirmed`'s own line to that effect.
