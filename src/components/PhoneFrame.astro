@@ -12,7 +12,7 @@ const { label, dark = false, src, alt = '' } = Astro.props;
   <div class="bezel">
     <div class:list={['screen', { dark, 'palette-light': !dark && !src }]}>
       {src
-        ? <Image src={src} alt={alt} widths={[300, 600, 900]} sizes="300px" class="shot" />
+        ? <Image src={src} alt={alt} width={900} widths={[300, 600, 900]} sizes="300px" class="shot" />
         : <slot />}
     </div>
   </div>
