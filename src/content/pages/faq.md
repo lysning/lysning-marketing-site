@@ -41,27 +41,29 @@ Nothing. There's no payment path in the app at all. A paid tier is likely later 
 
 Both are planned from the start. iPhone is likely to open first.
 
-## Safe-to-Spend
+## Safe to Spend
 
-### What is Safe-to-Spend?
+### What is Safe to Spend?
 
 It's one number that answers one question: **can I afford this today?**
 
 Your bank balance can't answer that, because it doesn't know what's coming. Rent is due Friday. That £40 you sent your flatmate for the electricity bill is still sitting in your balance like it's yours. The refund from the jacket you returned hasn't landed yet. So the balance says one thing and reality says another.
 
-Safe-to-Spend takes your balance, sets aside the money that's already promised to something, and shows you what's genuinely left. If it says £180, you can spend £180 today without anything breaking later.
+Safe to Spend takes your balance, sets aside the money that's already promised to something, and shows you what's genuinely left. If it says £180, you can spend £180 today without anything breaking later.
 
-### How is Safe-to-Spend calculated?
+### How is Safe to Spend calculated?
 
 Start with the money actually in your accounts. Then take away everything that isn't really available:
 
 - **Bills due before your next payday** — rent, phone, subscriptions. Not paid yet, but as good as spent.
 - **Money you've set aside for goals** — see [Goals and set-asides](#goals-and-set-asides) below.
+- **What's left for everyday spending** — the part of your monthly amount for groceries, fuel and eating out that you haven't spent yet.
+- **Card payments due** before your next payday.
 - **Money that only looks like yours** — a transfer you made between your own two accounts shouldn't count twice, and a refund on its way back shouldn't count until it lands.
 
-What's left over is Safe-to-Spend.
+What's left over is Safe to Spend.
 
-A rough example. You have £900 in your current account. Rent of £600 comes out next week, you've set aside £120 for a holiday, and £30 of what you see is really your flatmate's half of the electricity. Your balance says £900. Safe-to-Spend says £150 — and £150 is the number you can actually make decisions with.
+A rough example. You have £900 in your current account. Rent of £600 comes out next week, you've set aside £120 for a holiday, and £30 of what you see is really your flatmate's half of the electricity. Your balance says £900. Safe to Spend says £150 — and £150 is the number you can actually make decisions with.
 
 ### What period does the number cover?
 
@@ -79,11 +81,11 @@ Two things it deliberately doesn't do: it won't judge what you spend, and it won
 
 ### How are goals funded?
 
-You move real money into a goal from your real accounts — nothing leaves your bank, it just gets tagged. Lysning keeps a running ledger of what you've put toward each goal, so it always knows how much of your balance is already spoken for.
+You move real money into a goal from your real accounts — nothing leaves your bank, it just gets tagged. Lysning keeps a running ledger of what you've put toward each goal, so it always knows how much of your balance is already promised.
 
 ### How do set-asides work?
 
-Earmark money for a goal and Lysning subtracts it from what counts as spendable. Available money is your balance minus everything you've set aside — the same pound never gets counted toward a goal and toward today's spending at once.
+Set money aside for a goal and Lysning subtracts it from what counts as spendable. Available money is your balance minus everything you've set aside — the same pound never gets counted toward a goal and toward today's spending at once.
 
 ### What happens if I accidentally spend set-aside money?
 
@@ -93,7 +95,7 @@ It can happen. Lysning never holds your money, so nothing stops you from spendin
 
 ### Does Lysning hold or move my money?
 
-No. It stays in your own bank accounts the whole time. Lysning tracks and earmarks — it never takes custody, moves funds, or invests for you.
+No. It stays in your own bank accounts the whole time. Lysning only keeps track of what's set aside — it never takes custody, moves funds, or invests for you.
 
 ### Is my data private? Does it ever leave my phone?
 
