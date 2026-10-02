@@ -22,6 +22,10 @@ Status: `locked` (confirmed) · `proposed` (my recommendation, awaiting your ✔
 > **Filename note:** `0010-analytics-posthog.md` is named after the option that was *rejected*.
 > The decision is Umami. Rename on the next tidy-up.
 
+> **`reference/` was removed on 2026-10-02.** ADRs 0003, 0004 and 0011 cite snapshots under
+> `reference/` — they record what was read when the decision was taken. The files are in git
+> history before that date; the living versions are in the app repo's `docs/`.
+
 ## Open questions
 
 - **ADR 0004 — the hero line.** Three planning-led candidates, none chosen.
