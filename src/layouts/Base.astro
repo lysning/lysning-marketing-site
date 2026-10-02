@@ -13,12 +13,16 @@ interface Props {
   ogImage?: string;
   /* Pages reached only from a Buttondown redirect (/waitlist/*) — kept out of search. */
   noindex?: boolean;
+  /* False on /help: the app links there, and a page the app sends someone to
+     carries no third-party script (lysning-app docs/beginner-help.md, D9). */
+  analytics?: boolean;
 }
 const {
   title = 'Lysning — when can you afford it?',
   description = 'A forward-looking budgeting and saving app: see the month each of your goals becomes affordable, and what moves that date. Runs on your phone. Free, coming soon in the UK.',
   ogImage = '/og/home.png',
   noindex = false,
+  analytics = true,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 // og:image must be absolute — relative paths are silently dropped by most scrapers.
@@ -58,7 +62,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Umami analytics (ADR 0010): cookieless. Set PUBLIC_UMAMI_ID before deploy. -->
-    {import.meta.env.PUBLIC_UMAMI_ID && (
+    {analytics && import.meta.env.PUBLIC_UMAMI_ID && (
       <script
         defer
         src="https://cloud.umami.is/script.js"

@@ -18,7 +18,12 @@ const { Content } = await render(page);
 // dated revision in the `legal` collection rather than a single page.
 const ogImage = page.id === 'faq' ? `/og/${page.id}.png` : '/og/home.png';
 ---
-<Base title={page.data.title} description={page.data.description} ogImage={ogImage}>
+<Base
+  title={page.data.title}
+  description={page.data.description}
+  ogImage={ogImage}
+  analytics={!page.id.startsWith('help/')}
+>
   <Nav />
   <main id="main" tabindex="-1">
     <section class="page">
