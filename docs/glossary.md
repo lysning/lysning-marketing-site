@@ -2,13 +2,13 @@
 
 Shared vocabulary for the marketing site so copy stays consistent. Product terms are sourced
 from the app docs; the app was renamed **Salvyn → Lysning**. Launch market is the **UK** (ADR
-0003 Amendment) — the India framing in earlier drafts and in `reference/` no longer applies.
+0003 Amendment) — the India framing in earlier drafts no longer applies.
 
 | Term | Meaning | Copy rule |
 |---|---|---|
 | **Lysning** | The app: a forward-looking personal financial planner. Formerly "Salvyn". | Always "Lysning". Never "Salvyn" in public copy. |
 | **Affordability calendar** | **The wedge.** From what you can genuinely save, the date each goal becomes affordable — and how that date moves when you change what you set aside. Shipped. | Lowercase, descriptive. This is the hero concept; lead with the *date*, not the mechanism. |
-| **Prospective, not retrospective** | The category framing: rivals categorise the month you just had; Lysning plans the ones coming. | Argue it on mechanism. **Never name a rival** (`reference/gtm.md`). |
+| **Prospective, not retrospective** | The category framing: rivals categorise the month you just had; Lysning plans the ones coming. | Argue it on mechanism. **Never name a rival** (app [gtm.md](https://github.com/lysning/lysning-app/blob/main/docs/gtm.md)). |
 | **Safe to Spend (STS)** | What's free to spend until your next payday (or month-end), once money set aside for goals, bills due, what's left of everyday spending and card payments due are taken off. | Three capitalised words, no hyphens — exactly as the app writes it (lysning-app#1032). Capitalised, but **no longer the hero**. It is the daily consequence of the plan. Not a novelty claim — PocketGuard and others ship it. |
 | **Set aside** | Goals set aside *real money in real accounts*: `available = balance − Σ set aside`. The same pound is never promised twice. A goal's rate reads "set aside £X a month". | **The only word for goal money** — never earmark, reserve or commit; the app enforces this by test (lysning-app#1032). Supporting mechanic — it's why the affordability date is believable. Also carries "we never hold your money". |
 | **Promised** | Money already spoken for by bills, plans and goals together — "your income is all promised already". | The app's word for the whole sum; "set aside" is for goal money only. |
@@ -28,7 +28,7 @@ India-market vocabulary, out of scope (ADR 0003 Amendment). The UK equivalent of
 banking, which the app **does not use** — so it isn't a replacement term, it's simply not
 something the site talks about.
 
-## Voice (from `reference/design-guidelines.md` §7)
+## Voice (from the app's [design-guidelines.md](https://github.com/lysning/lysning-app/blob/main/docs/design-guidelines.md) §7)
 - A **thoughtful friend at a coffee shop**, never a financial advisor in a suit.
 - **Never the word "budget"** in user-facing copy. One sanctioned exception: the FAQ question
   *"Is this a budgeting app?"*, plus `<title>` / `<meta description>` (ADR 0005 Amendment).

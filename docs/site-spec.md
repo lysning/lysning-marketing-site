@@ -3,12 +3,13 @@
 Single static page plus supporting pages (`/faq`, `/privacy`, `/terms`). Astro → GitHub Pages →
 lysning.app. Purpose: **explain Lysning, build trust, and collect a beta waitlist** (ADR 0012).
 **UK-first, English, £.** Voice + visuals inherit the app's design system
-(`reference/design-guidelines.md`). See `decisions/` for the ADRs, `glossary.md` for terms, and
-`reference/` for read-only snapshots of the app's product docs.
+([design-guidelines.md](https://github.com/lysning/lysning-app/blob/main/docs/design-guidelines.md) in the app repo). See `decisions/` for the
+ADRs and `glossary.md` for terms.
 
-> **Reference snapshots are stale on two points.** They were copied on 2026-07-23 and still
-> describe (a) India as the launch/validation market and (b) Safe-to-Spend as the wedge. Neither
-> governs this site. See ADR 0003 and ADR 0004. Re-sync from the app repo before trusting them.
+> **The app's product docs live only in the app repo** — [lysning-app/docs](https://github.com/lysning/lysning-app/blob/main/docs). This repo
+> keeps no copies: the snapshots it used to hold (copied 2026-07-23) drifted from the app and
+> taught the site retired words. Read the app's docs there. Where they describe India as a
+> market or Safe to Spend as the wedge, neither governs this site (ADR 0003, ADR 0004).
 
 ## What the site is actually selling
 
