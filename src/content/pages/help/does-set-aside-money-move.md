@@ -15,10 +15,29 @@ No. Money set aside for a goal stays in your own bank account. Lysning marks par
 ## How money gets set aside
 
 - **When you create a goal**, you can set some aside straight away.
-- **On payday**, if the goal is set to *Set aside automatically*. When your income arrives, Lysning sets this month's amount aside and tells you — *Your income arrived. £200 for Holiday is set aside* — with **Adjust** and **Undo**. If there isn't enough for every goal, each gets a share.
+- **On payday**, if you said yes when you created the goal: *When your pay arrives, set £200 aside for Holiday automatically?* When your income arrives, Lysning sets the amount aside and tells you — *Your income arrived. £200 for Holiday is set aside* — with **Adjust** and **Undo**. If there isn't enough for every goal, each gets a share.
+
+We recommend the automatic way. Setting money aside the day you're paid, before anything else, is one of the most reliable ways to reach a goal. But it's your call, and you can switch it on or off for any goal under *Set aside automatically*.
 - **Whenever you like**, from the goal itself.
 
 You can only set aside money that isn't already promised: if you ask for more, Lysning tells you how much is available.
+
+## It's never locked in
+
+Whenever you like, you can:
+
+- **Change the amount** — edit the goal, or tap **Adjust** on the payday notice.
+- **Pause** — *Pause goal* on the goal. Nothing is set aside until you resume it, and what's already set aside stays put.
+- **Release money** — it goes straight back into Safe to Spend.
+- **Set aside more** — from the goal, any day.
+
+### Skipping a month
+
+- **Before payday:** pause the goal, then resume it after payday.
+- **On payday:** tap **Undo** on the notice, or **Adjust** to set aside less.
+- **Afterwards:** release what was set aside.
+
+Skipping never counts against you. The goal's expected date moves later; if you'd rather keep the original date, Lysning shows what catching up would take — as an option, never a demand.
 
 ## Spending it, or changing your mind
 
