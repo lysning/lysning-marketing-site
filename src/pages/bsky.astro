@@ -1,0 +1,23 @@
+---
+// Short link for the Bluesky bio: lysning.app/bsky → the home page with the Bluesky UTM.
+// Bluesky shows bio text as typed, so a raw ?utm_source= link reads as clutter; this keeps
+// the bio clean while the channel test (3 attributed waitlist submits) still reads the UTM.
+// Deliberately not wrapped in Base: no Umami on this hop, so the visit is counted once, on
+// the page it lands on, with the source attached. noindex: a redirect is never a result.
+const target = '/?utm_source=bluesky&utm_medium=social';
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Lysning</title>
+    <link rel="canonical" href="https://lysning.app/" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <script is:inline define:vars={{ target }}>location.replace(target);</script>
+  </head>
+  <body>
+    <p><a href={target}>Continue to lysning.app</a></p>
+  </body>
+</html>
