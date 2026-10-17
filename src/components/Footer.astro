@@ -14,7 +14,10 @@ const social = [
 <footer class="footer">
   <div class="container inner">
     <div class="brand">
-      <span class="wordmark">Lysning</span>
+      <div class="lockup">
+        <img class="mark" src="/mark-3.svg" alt="" width="40" height="40" />
+        <span class="wordmark">Lysning</span>
+      </div>
       <p class="tag">Free · coming soon in the UK.</p>
     </div>
     <div class="links">
@@ -49,7 +52,9 @@ const social = [
     background: var(--island); color: var(--ink-inverse); padding-block: 64px 30px;
   }
   .inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
-  .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.7rem; letter-spacing: -0.02em; }
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .mark { display: block; width: 40px; height: 40px; }
+  .wordmark { font-family: var(--font-wordmark); font-weight: 400; font-size: 1.7rem; letter-spacing: -0.02em; }
   .tag { color: color-mix(in srgb, var(--ink-inverse) 72%, var(--island)); margin: 8px 0 0; font-size: 0.95rem; }
   .links { display: flex; flex-direction: column; align-items: flex-end; gap: 0; }
   .links > a {
