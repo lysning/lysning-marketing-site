@@ -66,6 +66,8 @@ h1, h2, h3, h4 {
   font-weight: 520;
   line-height: 1.12;
   letter-spacing: -0.011em;
+  /* Even lines, so a short last word ("saving.") never sits alone on its own. */
+  text-wrap: balance;
 }
 h1 { font-size: clamp(2.6rem, 6.2vw, 4.5rem); line-height: 1.04; letter-spacing: -0.02em; font-weight: 500; }
 h2 { font-size: clamp(1.9rem, 4vw, 2.95rem); line-height: 1.08; letter-spacing: -0.016em; }

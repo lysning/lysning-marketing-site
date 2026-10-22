@@ -100,7 +100,8 @@ rigidity is *felt, not seen*. Never soften a data surface.
      the phone and the data is gone — that's the trade for there being no server. Omitting it is
      what would make the section marketing.
 
-9. **Dark mode** — shipped showcase; kept.
+9. **Dark mode** — *dropped* (6272aeb, "Day or night is gone"). The page follows the OS palette
+   itself; there is no showcase section.
 
 10. **Waitlist close** — the CTA again, before the footer. Gated on the same env var.
 
@@ -116,7 +117,7 @@ rigidity is *felt, not seen*. Never soften a data surface.
 
 ## Screenshots needed (ADR 0007)
 Real screenshots (iOS, `lysning-app/out/screenshots/raw` → `src/assets/screens/`) now cover
-Goals (§4), STS home (§5), Trustworthy (receipt) and Dark mode. Remaining, from **one seeded
+Goals (§4), STS home (§5), Trustworthy (receipt) and Privacy (§8). Remaining, from **one seeded
 month, one device, en-GB, no red, no placeholder values**:
 - **Affordability calendar** (hero + §3) — the priority; hero still shows the HTML mockup.
 
