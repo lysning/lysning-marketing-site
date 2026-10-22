@@ -31,6 +31,9 @@ const items = [
 </section>
 
 <style>
+  /* Half the usual bottom gap: the calendar below shares this ground, so a full gap on each
+     side stacked into ~330px of nothing between the cards and the next heading. */
+  #problem { padding-bottom: calc(var(--section-gap) / 2); }
   .head { max-width: 20ch; margin-bottom: clamp(44px, 6vw, 72px); }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 56px); }
   .item { display: flex; flex-direction: column; }
