@@ -12,7 +12,7 @@ Status: `locked` (confirmed) · `proposed` (my recommendation, awaiting your ✔
 | 0003 | ~~India-first~~, English-only, ~~INR/₹~~ copy | **superseded** — UK launch market, £/GBP |
 | 0004 | Hero framing | **open** — reopened; candidate C withdrawn |
 | 0005 | Section list / scope freeze | **amended** — FAQ restored; calendar leads |
-| 0006 | Show "free" only; no pricing | locked |
+| 0006 | Show "free" only; no pricing | **amended** — one line naming bank sync as a future paid upgrade |
 | 0007 | App visuals = real screenshots | locked |
 | 0008 | Static build with Astro | locked |
 | 0009 | Domain = lysning.app (registered) | locked |

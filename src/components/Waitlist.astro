@@ -8,11 +8,28 @@ const endpoint = import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
   <section id="waitlist" class="wl-sec wash">
     <div class="container inner">
       <p class="eyebrow">Coming soon · UK</p>
-      <h2>Be there the day it <em class="warm">opens.</em></h2>
+      <h2>Be there the day it opens.</h2>
       <p class="lead">
         Invites go out in batches. Leave your email and you’ll be in one of the early ones —
         then nothing from us until there’s something worth saying.
       </p>
+      <!-- Answered here, at the point the email is asked for: how numbers get in, the effort,
+           and which phone (docs/specs/02-how-it-works.md). -->
+      <dl class="facts">
+        <div>
+          <dt>Your numbers</dt>
+          <dd>You set it up with your own figures and add spending as you go, or import a spreadsheet from your bank. No&nbsp;bank&nbsp;login.</dd>
+        </div>
+        <div>
+          <dt>Your time</dt>
+          <dd>A few minutes a week. Nothing daily to keep up.</dd>
+        </div>
+        <div>
+          <dt>Your phone</dt>
+          <dd>iPhone first, in beta now. Android is coming soon.</dd>
+        </div>
+      </dl>
+      <p class="more">More in the <a href="/faq">FAQ</a>.</p>
       <WaitlistForm id="close" />
     </div>
   </section>
@@ -21,4 +38,8 @@ const endpoint = import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
 <style>
   .inner { max-width: 60ch; }
   .wl-sec h2 { max-width: 18ch; }
+  .facts { margin: 0 0 var(--space-4); display: grid; gap: var(--space-3); }
+  .facts dt { font-family: var(--font-brand); font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+  .facts dd { margin: 2px 0 0; color: var(--ink-secondary); }
+  .more { margin: 0 0 var(--space-8); font-size: 0.95rem; color: var(--ink-secondary); }
 </style>
