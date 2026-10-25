@@ -19,7 +19,8 @@ docs before the draft banners come off, and before GA.
 | 3(f) | **Waitlist:** Buttondown's sub-processor list was read on 2026-09-18 (see Resolved below) and nothing on it touches waitlist addresses beyond hosting and email delivery. One judgement is left for review: whether §5 names a processor's sub-processors or relies on the processor's published list, which is the same question as for PostHog, Sentry and Expo — decide it once for all four. |
 | 3(h), 4 | **App updates:** the EAS Update check sends IP and a persistent per-install EAS client ID to Expo on every launch, before consent. Confirm the Art. 6(1)(f) basis, and whether PECR reg. 6's strictly-necessary exemption covers storing and reading that ID. The app-side change to reduce the check is tracked in lysning-app. |
 | 5, 6, 7 | **App updates:** confirm Expo's legal entity, DPA, hosting region, transfer mechanism and retention for update requests; state them in §5–§7. |
-| 1, 27 | **Operator is based in India, not the UK.** §1 no longer states a country. Confirm whether UK GDPR Art. 27 requires a UK representative (or the occasional/low-risk exemption applies), and name one in §1 if so. |
+| 1, 27 | **Operator is based in India, not the UK.** §1 no longer states a country. Confirm whether UK GDPR Art. 27 requires a UK representative (or the occasional/low-risk exemption applies), and name one in §1 if so. **Timing:** likely triggered already — the waitlist (live 2026-10-06), Tally survey and opt-in analytics are ongoing processing of UK individuals' data, which is hard to call "occasional". Premium bank sync would make it certain. Moot if a UK company is formed (see Before GA). |
+| — | **ICO data protection fee:** confirm whether a controller with no UK establishment must pay it. The ICO's fee page says sole traders using personal information pay, but is silent on overseas controllers; use the ICO self-assessment or ask the ICO. Almost certainly payable once a UK company is the controller. |
 | 6 | **Operator in India:** confirm whether the operator accessing waitlist, analytics and crash data from India is a restricted transfer that §6 must state. |
 | — | **DPDP Act 2023:** applies to processing carried out in India, whoever the data belongs to. Confirm obligations for waitlist, analytics and crash data, and the phase-in dates under the DPDP Rules. |
 | 3(i), 5, 6, 7 | **Feedback emails:** name the mailbox provider behind support@ in §5 (and §6 if it stores mail outside the UK), confirm its DPA, and replace §7's "as long as needed" with a set retention period. |
@@ -60,6 +61,11 @@ in the rows above.
 | 1, 13 | **Operator in India:** §1 no longer states a country. Confirm England and Wales governing law and courts still make sense with an operator based in India. |
 
 ## Before GA (App Store transfer)
+
+- **Decide where the GA company is registered (UK or India).** It settles several rows above: a UK
+  company gives Lysning a UK establishment, so Art. 27 falls away and the ICO fee applies; an
+  Indian company keeps the Art. 27 representative requirement indefinitely and keeps the DPDP and
+  restricted-transfer rows live.
 
 - Transfer the App Store Connect listing from the personal account to the org account (requires
   a D-U-N-S-backed Apple Developer organisation enrolment; transfers require the app to have no

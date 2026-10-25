@@ -39,7 +39,7 @@ Nothing. There's no payment path in the app at all. A paid tier is likely later 
 
 ### Is there an Android version?
 
-Both are planned from the start. iPhone is likely to open first.
+Yes, it's coming soon. The beta is on iPhone first; Android follows.
 
 ## Safe to Spend
 
