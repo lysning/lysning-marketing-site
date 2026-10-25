@@ -27,19 +27,12 @@ const goals = [
       <p class="eyebrow">The affordability calendar</p>
       <h2>Every goal gets a <em class="ever">date</em>. Change what you save, and the dates move.</h2>
       <p class="lead">
-        Lysning works out what you can genuinely set aside each month — after the bills that
-        haven’t left yet and the money already claimed by something else. Then it turns that into
-        the one thing a plan actually needs: the month each goal becomes affordable.
+        Lysning turns what you can genuinely set aside into the month each goal becomes affordable.
       </p>
       <p class="lead">
         Put £200 more a month behind the deposit and you watch it move from February 2030 to
         May 2029 — before you commit to anything. Take a month off and you see where it lands
         instead. The trade-off is in front of you while you can still make it.
-      </p>
-      <p class="note">
-        <strong>This is the part that isn’t a report.</strong> A summary of the month you just had
-        arrives after every decision in it has already been made. A date you can move is something
-        you can plan around.
       </p>
     </div>
 
@@ -80,16 +73,6 @@ const goals = [
 <style>
   .grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
   .copy .lead + .lead { margin-top: 1rem; }
-  .note {
-    position: relative; margin-top: 1.6rem; padding: 16px 20px 16px 22px;
-    color: var(--ink-secondary); font-size: 0.98rem; max-width: var(--measure);
-    background: var(--primary-subtle); border-radius: var(--radius-mood);
-  }
-  .note::before {
-    content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px;
-    border-radius: var(--radius-full); background: var(--primary);
-  }
-  .note strong { color: var(--ink); font-weight: 600; }
 
   .cal { padding: clamp(18px, 2.4vw, 26px) clamp(20px, 2.6vw, 30px) clamp(18px, 2.4vw, 24px); margin: 0; }
   .cal-cap {
