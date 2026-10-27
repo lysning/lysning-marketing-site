@@ -63,7 +63,17 @@ Start with the money actually in your accounts. Then take away everything that i
 
 What's left over is Safe to Spend.
 
-A rough example. You have £900 in your current account. Rent of £600 comes out next week, you've set aside £120 for a holiday, and £30 of what you see is really your flatmate's half of the electricity. Your balance says £900. Safe to Spend says £150 — and £150 is the number you can actually make decisions with.
+A rough example. You have £900 in your current account, and £120 of it is set aside for a holiday. Rent of £600 comes out next week, and you've £60 of your everyday spending left for groceries before payday. Your balance says £900. Safe to Spend says £120 — and £120 is the number you can actually make decisions with.
+
+[//]: # (Rows mirror the app's Safe to Spend breakdown, lysning-app src/utils/stsReceipt.ts. No goals line: set-aside money is netted inside Available now, as in the app. docs/specs/07-faq.md)
+<figure class="ledger surface-data" aria-label="Worked example: how £900 becomes £120 safe to spend">
+  <dl>
+    <div><dt>Available now<span>£900 balance − £120 set aside</span></dt><dd>£780</dd></div>
+    <div><dt>Bills due before payday<span>Rent</span></dt><dd>−£600</dd></div>
+    <div><dt>Everyday spending: unspent<span>Groceries, until payday</span></dt><dd>−£60</dd></div>
+    <div class="total"><dt>Safe to Spend</dt><dd>£120</dd></div>
+  </dl>
+</figure>
 
 ### What period does the number cover?
 
@@ -101,6 +111,10 @@ No. It stays in your own bank accounts the whole time. Lysning only keeps track 
 
 Everything runs on your device — no account, no server for your financial data, nothing to breach. Transactions, balances, goals and settings are stored only on your phone, in a database encrypted at rest.
 
-The only things that can ever leave are **usage analytics and crash reports**, both off until you turn them on, and a **check for app updates** each time the app opens. None of them contains any financial data, your name or your email. Analytics events are pseudonymous rather than anonymous: each carries a token that is destroyed and regenerated every calendar month, so nothing links what you did in one month to the next. You can withdraw consent at any time in **Settings → Privacy**, and collection stops immediately.
+The only things that can ever leave are **usage analytics and crash reports**, both off until you turn them on, and a **check for app updates** each time the app opens. None of them contains any financial data, your name or your email.
+
+Analytics events are pseudonymous rather than anonymous: each carries a token that is destroyed and regenerated every calendar month, so nothing links what you did in one month to the next.
+
+You can withdraw consent at any time in **Settings → Privacy**, and collection stops immediately.
 
 The full detail is in our [Privacy Policy](/privacy).
