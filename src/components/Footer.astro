@@ -25,7 +25,6 @@ const social = [
     </div>
     <div class="links">
       <a href="/faq">FAQ</a>
-      <a href="mailto:hello@lysning.app">hello@lysning.app</a>
       <div class="social">
         {social.map((s) => (
           <a href={s.href} target="_blank" rel="noopener" aria-label={s.name} title={s.name}>
@@ -64,6 +63,12 @@ const social = [
   .links > a {
     font-family: var(--font-brand); color: var(--accent-deep); font-weight: 600; font-size: 0.95rem;
     padding-block: 11px;   /* ~22px text -> 44px target */
+  }
+  /* Stacked under the brand, the column lines up with the text edge, not its own widest item. */
+  @media (max-width: 560px) {
+    .inner { flex-direction: column; }
+    .links { align-items: flex-start; }
+    .social { margin-left: -13px; }   /* icon's tap padding, so the glyph meets the edge */
   }
   .social { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: flex-end; }
   .social a {
