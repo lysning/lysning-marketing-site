@@ -64,6 +64,12 @@ const social = [
     font-family: var(--font-brand); color: var(--accent-deep); font-weight: 600; font-size: 0.95rem;
     padding-block: 11px;   /* ~22px text -> 44px target */
   }
+  /* Stacked under the brand, the column lines up with the text edge, not its own widest item. */
+  @media (max-width: 560px) {
+    .inner { flex-direction: column; }
+    .links { align-items: flex-start; }
+    .social { margin-left: -13px; }   /* icon's tap padding, so the glyph meets the edge */
+  }
   .social { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: flex-end; }
   .social a {
     display: inline-flex; padding: 13px; border-radius: var(--radius-full);
