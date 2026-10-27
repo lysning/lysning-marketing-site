@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) =>
@@ -17,6 +18,9 @@ const { Content } = await render(page);
 // Privacy and Terms are not here: they have their own routes, because each is a
 // dated revision in the `legal` collection rather than a single page.
 const ogImage = page.id === 'faq' ? `/og/${page.id}.png` : '/og/home.png';
+// Someone who has read the FAQ to the end is the most qualified moment to ask. Form only, with
+// the waitlist section's own words: its facts repeat FAQ answers (docs/specs/07-faq.md).
+const askAtEnd = page.id === 'faq' && import.meta.env.PUBLIC_WAITLIST_ENDPOINT;
 ---
 <Base
   title={page.data.title}
@@ -35,6 +39,19 @@ const ogImage = page.id === 'faq' ? `/og/${page.id}.png` : '/og/home.png';
         </div>
       </div>
     </section>
+    {askAtEnd && (
+      <section class="ask wash">
+        <div class="container inner">
+          <p class="eyebrow">Coming soon · UK</p>
+          <h2>Be there the day it opens.</h2>
+          <p class="lead">
+            Invites go out in batches. Leave your email and you’ll be in one of the early ones —
+            then nothing from us until there’s something worth saying.
+          </p>
+          <WaitlistForm id="faq" />
+        </div>
+      </section>
+    )}
   </main>
   <Footer />
 </Base>
@@ -75,4 +92,72 @@ const ogImage = page.id === 'faq' ? `/og/${page.id}.png` : '/og/home.png';
     max-width: var(--measure);
     margin-bottom: var(--space-2);
   }
+  /* ¶ permalinks (src/markdown/heading-anchors.mjs): shown on hover or focus; faint always
+     on touch, where there's no hover. */
+  .doc :global(.anchor) {
+    margin-left: 0.4em;
+    padding-inline: 0.15em;
+    font-weight: 400;
+    color: var(--ink-muted);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+  }
+  .doc :global(h2:hover .anchor),
+  .doc :global(h3:hover .anchor),
+  .doc :global(.anchor:focus-visible) { opacity: 1; }
+  .doc :global(.anchor:hover) { color: var(--primary-text); }
+  @media (hover: none) { .doc :global(.anchor) { opacity: 0.5; } }
+  /* Global links carry no underline; inside an answer the link must not hide. */
+  .doc :global(p a),
+  .doc :global(li a) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  /* Worked example — the app's Safe to Spend breakdown, as a static card. */
+  .doc :global(.ledger) {
+    max-width: 28rem;
+    margin: var(--space-6) 0;
+    padding: var(--space-2) var(--space-5);
+  }
+  .doc :global(.ledger dl) { margin: 0; }
+  .doc :global(.ledger div) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .doc :global(.ledger div:first-child) { border-top: 0; }
+  .doc :global(.ledger dt) {
+    font-family: var(--font-brand);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .doc :global(.ledger dt span) {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+  .doc :global(.ledger dd) {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .doc :global(.ledger .total) { border-top-color: var(--ink-muted); }
+  .doc :global(.ledger .total dd) { font-size: 1.2rem; font-weight: 700; color: var(--primary-text); }
+
+  /* Its own washed section, like the landing page's waitlist close (ADR 0011: washes behind
+     narrative only) — so it reads as an ask, not another answer. */
+  .ask .inner { max-width: 60ch; }
+  .ask h2 { max-width: 18ch; }
 </style>
